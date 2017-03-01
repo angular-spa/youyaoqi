@@ -1,4 +1,4 @@
-angular.module('homeModule',['ui.router','angularCSS'])
+angular.module('homeModule',['ui.router','angularCSS','mangaModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{

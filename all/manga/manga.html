@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+<div id="mgContent">
+	<div id="mangaTop">
+		<a href="#home" class="mgHeader-back"></a>
+		<div class="mgHeader-title">
+			动漫
+		</div>
+		<div class="mgHeader-history"></div>
+		<div class="mgHeader-share"></div>
+	</div>
+	<div id="mgScrollView">
+		<a ui-sref="son"><img ng-repeat="(i,obj) in arrImgs" src={{obj.img}} ng-click="mgClick(i)"/></a>
+	</div>
+</div>
