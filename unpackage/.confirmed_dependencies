@@ -1,0 +1,16 @@
+{
+	"index.html": {
+		"resources": [
+			"lib/angular-css.min.js",
+			"lib/angular.min.js",
+			"lib/angular-ui-router.js",
+			"all/home/home.js",
+			"app.js",
+			"index.css",
+			"reset.css",
+			"lib/jquery.min.js",
+			"lib/swiper.jquery.min.js",
+			"css/swiper.min.css"
+		]
+	}
+}

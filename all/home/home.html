@@ -1,8 +1,33 @@
-<div id="home">
-	
-</div>
 
-<a href="" ui-href='colorComic'></a>
-<a href="" ui-href='manga'></a>
-<a href="" ui-href='update'></a>
-<a href="" ui-href='rank'></a>
+<div id="home">
+	<header id="homeheader">
+		<div id="logo"></div>
+		<div id="iconheader">
+			<a href="" id="userheader"></a>
+			<a href="" id="bookrackheader"></a>
+			<a href="" id="searchheader"></a>
+		</div>
+	</header>
+	<div id="mainhome">
+		<div id="swiperdiv" class="topmargin">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper"></div>
+			</div>
+		</div>
+		<nav class="topmargin" id="homenav">
+			<div id="navwarp">
+				<a id="colorComic" href="" ui-sref='colorComic'></a>
+				<a id="manga" href="" ui-sref='manga'></a>
+				<a id="update" href="" ui-sref='update'></a>
+				<a id="rank" href="" ui-sref='rank'></a>
+			</div>
+		</nav>
+		<!--往puleft和puright撑起来的高度小的div添加漫画-->
+		<div id="pubu" class="topmargin clearfloat">
+			<!--瀑布流左侧-->
+			<div id="puleft"></div>
+			<!--瀑布流右侧-->
+			<div id="puright"></div>
+		</div>
+	</div>
+</div>
