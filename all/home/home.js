@@ -8,6 +8,6 @@ angular.module('homeModule',['ui.router','angularCSS'])
 		controller:'homeCtrl'
 	})
 })
-.controller('homeCtrl',['$scope',function($scope){
+.controller('homeCtrl',['$scope','pubvar',function($scope,pubvar){
 	
 }])
