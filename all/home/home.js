@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-angular.module('homeModule',['ui.router','angularCSS','colorModule'])
-=======
-angular.module('homeModule',['ui.router','angularCSS','mangaModule'])
->>>>>>> c4a80eb1f03e27251875022c1c5284acc9b669d7
+
+angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{
