@@ -1,0 +1,72 @@
+[
+    {
+        "cartoonId": 1,
+        "name": "十万个冷笑话",
+        "series": "第三季",
+        "show": "27",
+        "frequency": "半月更（每月1号、15号）"
+    },
+    {
+        "cartoonId": 2,
+        "name": "熊猫手札",
+        "series": "第一季",
+        "show": "10",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 3,
+        "name": "馒头日记",
+        "series": "第一季",
+        "show": "10",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 4,
+        "name": "端脑",
+        "series": "第一季",
+        "show": "16",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 5,
+        "name": "雏蜂",
+        "series": "第一季",
+        "show": "6",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 6,
+        "name": "神之一脚",
+        "series": "第一季",
+        "show": "4",
+        "frequency": "双周周二"
+    },
+    {
+        "cartoonId": 7,
+        "name": "白间",
+        "series": "第一季",
+        "show": "8",
+        "frequency": "每周五"
+    },
+    {
+        "cartoonId": 8,
+        "name": "雏蜂日语版",
+        "series": "第一季",
+        "show": "5",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 9,
+        "name": "镇魂街",
+        "series": "第一季",
+        "show": "24",
+        "frequency": "已完结"
+    },
+    {
+        "cartoonId": 10,
+        "name": "菊叔5岁画",
+        "series": "第一季",
+        "show": "9",
+        "frequency": "每周四"
+    }
+]

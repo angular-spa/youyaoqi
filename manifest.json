@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H5C3DC3CC",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "有妖气",/*应用名称，程序桌面图标名称*/
@@ -199,5 +199,36 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"lib/angular-css.min.js",
+					"lib/angular.min.js",
+					"lib/angular-ui-router.js",
+					"all/home/home.js",
+					"app.js",
+					"index.css",
+					"reset.css",
+					"lib/jquery.min.js",
+					"lib/swiper.jquery.min.js",
+					"css/swiper.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"lib/angular-route.js",
+				"all/home/img/icon_index_tools.png",
+				"all/home/home.html",
+				"all/home/img/u17_logo.png",
+				"all/home/home.css",
+				"all/home/pubu.js",
+				"all/home/img/header_bg_repeat.jpg"
+			]
+		}
+	}
 }
