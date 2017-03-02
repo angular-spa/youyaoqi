@@ -4,8 +4,24 @@
 		<div class="sonHeader-title">
 			有妖气动漫
 		</div>
-		<div class="sonHeader-history"></div>
+		<div class="sonHeaderList"><div class="sonHeader-history"></div></div>
+		<ul class="topList">
+			<a ui-sref="son" ng-repeat="(i,obj) in arrTopList" ng-click="topLClick(i)" ><li><span>{{"《"+obj.name+"》"}}</span><span>{{obj.frequency}}</span></li></a>
+		</ul>
 		<div class="sonHeader-share"></div>
+		<div class="cover"">
+			<div>
+				<p>分享至</p>
+				<span></span>
+				<img src="http://static.u17i.com/mobile_web/images/share_dialogWindow.png"/>
+				<ul>
+					<li>QQ空间</li>
+					<li>QQ好友</li>
+					<li>新浪微博</li>
+					<li>人人</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div id="sonScrollView">
 		<nav class="sonDongman-nav">
@@ -13,8 +29,9 @@
 			<a class="sonManhua_link">漫画</a>
 		</nav>
 		<div class="sonVideo-box">
-			<video id="sonVideo-box" autoplay="autoplay">
+			<video id="sonVideo-box" autoplay="autoplay" controls="controls">
 			</video>
+			<p></p>
 		</div>
 		<div class="sonDetail-info-content">
 			<ul class="sonDetail-tab">
@@ -22,6 +39,36 @@
 				<li>影片详情</li>
 				<li>相关评论</li>
 			</ul>
+			<div id="boxs">
+				<div class="box">
+					<div ng-repeat="(i,obj) in arrQuarter">
+						<div class="quarter" >{{obj.name+"  "+obj.frequency}}</div>
+						<div class="videoList">
+							<a ng-repeat="(j,obja) in arrVideoList[i]" ng-click="videoClick(i,j)">{{obja.name}}</a>
+						</div>	
+					</div>
+					<div class="xg-list">
+						<div class="xg-title">
+							<div>相关视频 同人视频及各种宣传</div>
+							<div class="xg-video"></div>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<ul class="details">
+						<li>导演： <span>{{arrMSG.director}}</span></li>
+						<li>配音： <span>{{arrMSG.dub}}</span></li>
+						<li>类型： <span>{{arrMSG.type}}</span></li>
+						<li>出品： <span>{{arrMSG.produce}}</span> </li>
+						<li>年份： <span>{{arrTime}}</span></li>
+					</ul>
+					<div class="videoInfo">
+						<p>简介：</p>
+						<div>{{arrMSG.intro}}</div>
+					</div>
+				</div>
+				<div class="box">3</div>
+			</div>
 		</div>
 	</div>
 </div>
