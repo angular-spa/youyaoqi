@@ -1,5 +1,5 @@
 
-angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule'])
+angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{
@@ -24,6 +24,23 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 	}
 }])
 .controller('homeCtrl',['$scope','pubvar','swiper','homeData',function($scope,pubvar,swiper,homeData){
+	
+	/*登录flag*/
+	$scope.loginflag = false;
+	$scope.getLogin = function(){
+		console.log("进来了");
+		if(sessionStorage.getItem('loginflag')){
+			$scope.loginflag = sessionStorage.getItem('loginflag');
+		}
+	}
+	//每次进来确定是否已经登录
+	$scope.getLogin();
+	
+	//判断从哪个按钮点进登录界面的(user,bookrank)登录界面点击登录按钮时会将此值赋给ui-sref
+	$scope.flagToWhitch = function(str){
+		sessionStorage.setItem('whitchFlag',str);
+	}
+	
 	/*轮播图*/
 	homeData.get('http://m.u17.com/banner/recommend',function(data){
 		console.log(data);
@@ -43,20 +60,47 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 	var bodyH = $('body').outerHeight();//body高度
 	var puflag = false;//是否添加漫画的flag
 	var minH = 0;//最小高度
-	var page = 0;
+	var page = 1;//初始页数
+	var ajaxflag = true;//ajax请求开关
+	var j=0;//图片加载计数
 	
 
 	getImg();
 	$('#home').scroll(function(){
+		//控制返回top显/隐
+		isTotopShow();
+		//添加漫画
 		getImg();
+		
 	});
+	
+	
+	//控制返回top显/隐
+	function isTotopShow(){
+		scTop = $('#home').scrollTop();
+		if(scTop/1 > (bodyH/1)*0.7){
+			$('#retotop').css('display','block');
+		}else{
+			$('#retotop').css('display','none');
+		}
+	}
+	
+	//返回顶部
+	$scope.toTop = function(){
+		$('#home').scrollTop(0);
+	}
+	
+	
+	
 	//检测高度变化动态给请求数据给高度最小的添加漫画
 	function getImg(){
-		scTop = $(window).scrollTop();
+		scTop = $('#home').scrollTop();
 		minH = Math.min.apply(this,[$('#puleft').outerHeight()/1,$('#puright').outerHeight()/1]);
-		scTop/1+bodyH/1>$('#pubu').offset().top/1+minH/1?puflag=true:puflag=false;
-		if(puflag){
-			page++;
+//		console.log($('#pubu')[0].offsetTop/1);
+		scTop/1+bodyH/1>$('#pubu')[0].offsetTop/1+minH/1?puflag=true:puflag=false;
+		if(puflag && ajaxflag){
+			ajaxflag = false;
+			
 			homeData.get('http://m.u17.com/waterfall/list?page='+page+'&pageSize=10',function(data){
 				for(var i=0;i<data.length;i++){
 					var img = data[i].comicCover;
@@ -69,12 +113,23 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 										'<p class="desp">'+brief+'</p>'+
 									'</a>'+
 								'</div>');
-					if($('#puleft').outerHeight()/1<$('#puright').outerHeight()/1){
-						$('#puleft').append(div);
-					}else{
-						$('#puright').append(div);
+					//图片加载完成之后再添加到页面,全部加载完成之后再开启ajax开关
+					div.find('img')[0].onload = function(){
+						if($('#puleft').outerHeight()/1<$('#puright').outerHeight()/1){
+							$('#puleft').append($(this).parents('.box'));
+						}else{
+							$('#puright').append($(this).parents('.box'));
+						}
+						j++;
+						if(j >= data.length-1){
+							j=0;
+							page++;
+							console.log(page);
+							ajaxflag = true;
+						}
 					}
 				}
+				
 				
 			})
 		}
