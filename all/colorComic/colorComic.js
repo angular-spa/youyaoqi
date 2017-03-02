@@ -18,7 +18,7 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 	colorData.get("http://m.u17.com/banner/caiman").success(function(res){
 		$scope.showImage = res;
 		$scope.showWord = new String($scope.showImage.word).substring(0,$scope.showImage.word.length-2);
-		$scope.showId = new String($scope.showImage.link).substring($scope.showImage.link.length-11,$scope.showImage.link.length-6);
+		$scope.showId = new String($scope.showImage.link).substring($scope.showImage.link.length-11,$scope.showImage.link.length-5);
 	});
 //彩漫书籍列表数据拿取使用
 	colorData.get('http://m.u17.com/color/list?page=0&size=15').success(function(res){
@@ -43,7 +43,6 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 		}
 	})
 	$scope.goDetail = function(id){
-		pubvar.id = id;
-		console.log(id);
+		sessionStorage.setItem("id", id);
 	}
 }])

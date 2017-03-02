@@ -1,0 +1,93 @@
+<div class="comic_detail">
+	
+	<!--头部,同彩漫页面-->
+	<div class="wrap_header">
+		<div class="comic_top_bar">
+			<a href="javascript:history.go(-1)" class="return_prev"></a>
+			<div class="comic_title">漫画详情</div>
+			<div class="comic_header_img"></div>
+		</div>
+	</div>
+	
+	<!--详情页面-->
+	<div class="comic_inner">
+		<div>
+			<div class="comic_scroll_view">
+				<div class="comic_info_cover">
+					<!--左上图片及内容-->
+					<div class="comic_cover_image">
+						<div class="comic_detail_cover">
+							<img src="{{comicDetailData.cover}}" alt="" />
+						</div>
+						<div class="comic_detail_info">
+							<span class="comic_name">{{comicDetailData.name}}</span>
+							<span class="comic_date">{{timeDate}}</span>
+							<div class="clear"></div>
+							<span class="comic_author">{{comicDetailData.authorName}}</span>
+							<span class="comic_tag">{{groupArr[comicDetailData.groupIds-1]}}/{{str}}</span>
+						</div>
+					</div>
+					<!--右上功能-->
+					<div class="comic_detail_msg">
+						<div class="comic_func">
+							<div class="line"></div>
+							<div class="shore_btn func_btn">
+								<div class="shore_text" ng-click="shore_way()">分享</div>
+							</div>
+							<a href="">
+								<div class="monthticket_btn func_btn">	
+									<div class="ticket_text">投食月票</div>	
+								</div>
+							</a>
+							<div class="commit_btn func_btn">
+								<div class="commit_text">{{count}}条</div>
+							</div>
+						</div>
+						
+						<!--开始阅读和收藏-->
+						<div class="read_start">
+							<a href="">开始阅读</a>
+						</div>
+						<div class="join_collec">
+							<a href="">加入收藏</a>
+						</div>
+						<a href="" class="tv"></a>
+					</div>
+				</div>
+				<!--漫画简介-->
+				<div class="contribute_box">
+					<div class="contri_text">{{comicDetailData.description}}</div>
+					<div class="all_text" ng-click="rotate($event)"></div>
+				</div>
+				
+				<div class="chapter-box"></div>
+				<div class="clear"></div>
+				
+				<!--猜你喜欢-->
+				<div class="recommend">
+					<div class="recommend_title">猜你喜欢</div>
+					<ul class="recommend_list">
+						<li ng-repeat="(i,obj) in recommend" ng-if="i<3">
+							<a href="javascript:location.reload()" ng-click="goDetail(obj.comicId)">
+								<div class="recommend_img" style="background-image: url({{obj.cover}});"></div>
+								<div class="recommend_name">{{obj.name}}</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<!--评论-->
+				<div class="comment_count">评论({{count}})</div>
+				<textarea class="textarea_comment" rows="4" placeholder="女主萌不萌？发表你的评论，来战！" ng-model="text" ng-change="changeText()"></textarea>
+				<div class="ui_textarea">
+					<div class="tips">您还可以输入<span class="limit">{{limit}}</span>字</div>
+					<div class="comment_btn">发表评论</div>
+				</div>
+				<div class="clear"></div>
+				
+				<!--留言板-->
+				<ul class="comment_list"></ul>
+			</div>
+		</div>
+	</div>
+</div>

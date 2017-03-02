@@ -25,14 +25,14 @@
 				<ul class="color_list">
 					<li ng-repeat='obj in colorList'>
 						<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)">
-							<div class="color_detail_box" ng-class="{'typeOne':obj.isVip==0,'typeTwo':obj.isVip==4,'typeThree':obj.isVip==2}">
-								<img src="{{obj.cover}}" alt="" />
+							<div class="color_detail_box" ng-class="{'typeOne':obj.accredit==0||obj.accredit==1,'typeTwo':obj.accredit==2,'typeThree':obj.accredit==3}">
+								<div class="detail_img" style="background-image: url({{obj.cover}});"></div>
 								<div class="detail_msg">
 									<span class="book_name">{{obj.name}}</span>
 									<span class="book_author">{{obj.authorName}}</span>
 									<span class="book-praise" >{{(obj.comicExtra.clickTotal/10000).toFixed(1)}}万</span>
 									<span class="book-flag">{{groupArr[obj.groupIds-1]}}/{{tag(obj.themeIds)}}</span>
-									<span class="book-updateTime">{{updateTime(obj.updateTime)}}</span>
+									<span class="book-updateTime">{{updateTime(obj.lastUpdateTime)}}</span>
 								</div>
 							</div>
 						</a>
