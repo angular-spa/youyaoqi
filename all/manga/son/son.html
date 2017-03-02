@@ -6,7 +6,7 @@
 		</div>
 		<div class="sonHeaderList"><div class="sonHeader-history"></div></div>
 		<ul class="topList">
-			<a ui-sref="son" ng-repeat="(i,obj) in arrTopList" ng-click="topLClick(i)" ><li><span>{{"《"+obj.name+"》"}}</span><span>{{obj.frequency}}</span></li></a>
+			<a href="javascript:location.reload();" ng-repeat="(i,obj) in arrTopList" ng-click="topLClick(i)" ><li><span>{{"《"+obj.name+"》"}}</span><span>{{obj.frequency}}</span></li></a>
 		</ul>
 		<div class="sonHeader-share"></div>
 		<div class="cover"">
