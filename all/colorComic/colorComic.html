@@ -1,0 +1,44 @@
+<div class="color_box">
+	
+	<!--彩漫头部-->
+	<div class="wrap_header">
+		<div class="color_top_bar">
+			<a ui-sref="home" class="return_home"></a>
+			<div class="color_title">彩漫</div>
+			<div class="color_header_img"></div>
+		</div>
+	</div>
+	
+	<!--彩漫下拉部分-->
+	<div class="color_inner">
+		<div>
+			<div class="color_scroll_view">
+			
+			<!--彩漫大图-->
+				<div class="show_image">
+					<a ui-sref="comicDetail" ng-click="goDetail(showId)">
+						<img src="{{showImage.img}}" alt="" />
+						<div class="show_msg">{{showWord}}</div>
+					</a>
+				</div>
+				<!--彩漫列表-->
+				<ul class="color_list">
+					<li ng-repeat='obj in colorList'>
+						<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)">
+							<div class="color_detail_box" ng-class="{'typeOne':obj.isVip==0,'typeTwo':obj.isVip==4,'typeThree':obj.isVip==2}">
+								<img src="{{obj.cover}}" alt="" />
+								<div class="detail_msg">
+									<span class="book_name">{{obj.name}}</span>
+									<span class="book_author">{{obj.authorName}}</span>
+									<span class="book-praise" >{{(obj.comicExtra.clickTotal/10000).toFixed(1)}}万</span>
+									<span class="book-flag">{{groupArr[obj.groupIds-1]}}/{{tag(obj.themeIds)}}</span>
+									<span class="book-updateTime">{{updateTime(obj.updateTime)}}</span>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

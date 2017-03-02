@@ -4,7 +4,7 @@ angular.module("myApp",["ui.router",'angularCSS','homeModule'])
 })
 .factory('pubvar',function(){
 	return {
-		
+		id:0
 	}
 })
 
