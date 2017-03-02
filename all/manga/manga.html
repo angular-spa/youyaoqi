@@ -4,10 +4,32 @@
 		<div class="mgHeader-title">
 			动漫
 		</div>
-		<div class="mgHeader-history"></div>
-		<div class="mgHeader-share"></div>
+		<div class="sonHeaderList"><div class="mgHeader-history"></div></div>
+		<ul class="topList">
+			<a ui-sref="son" ng-repeat="(i,obj) in arrTopList" ng-click="topLClick(i)" ><li><span>{{"《"+obj.name+"》"}}</span><span>{{obj.frequency}}</span></li></a>
+		</ul>
+		<div class="mgHeader-share">
+		</div>
+		<div class="cover"">
+			<div>
+				<p>分享至</p>
+				<span></span>
+				<img src="http://static.u17i.com/mobile_web/images/share_dialogWindow.png"/>
+				<ul>
+					<li>QQ空间</li>
+					<li>QQ好友</li>
+					<li>新浪微博</li>
+					<li>人人</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<div id="mgScrollView">
-		<a ui-sref="son"><img ng-repeat="(i,obj) in arrImgs" src={{obj.img}} ng-click="mgClick(i)"/></a>
+		<div ng-repeat="(i,obj) in arrImgs"  ng-click="mgClick(i)">
+			<a ui-sref="son" >
+				<img src={{obj.img}}    />
+				<span>{{obj.word}}</span>
+			</a>
+		</div>
 	</div>
 </div>

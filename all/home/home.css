@@ -3,7 +3,7 @@
 #logo{float: left;width: 2.64rem;height: 100%;background: url(img/u17_logo.png) no-repeat left center;background-size: auto 102%;margin-left: 0.25rem;}
 #iconheader{float: right;height: 100%;}
 #iconheader>a{height: 100%;background: url(img/icon_index_tools.png) no-repeat left center;background-size: auto 0.9rem;width: 0.9rem;margin-left: 0.5rem;float: left;height: 0.9rem;margin-top: 6%;}
-#iconheader>a#bookrackheader{width: 1.12rem;background-position-x: -1.7777rem;}
+#iconheader>a#bookrackheader,#iconheader>a.login-book{width: 1.12rem;background-position-x: -1.7777rem;}
 #iconheader>a#searchheader{background-position-x: -3.89rem;}
 #mainhome{padding: 0.1px 2% 0;}
 .topmargin{margin-top: 0.2777rem;}
@@ -23,3 +23,4 @@
 .box img{width: 100%;height: auto;}
 .titp,.desp{margin: 0.083333rem 0 0 0.14rem;}
 .desp{color: #999;font-size: 0.389rem;}
+#retotop{position: fixed;right: 0;bottom: 10%;width: 1.3889rem;height: 1.3889rem;background: url(img/back_top.png) no-repeat center center;background-size: 100% auto;z-index: 999;display: none;}
