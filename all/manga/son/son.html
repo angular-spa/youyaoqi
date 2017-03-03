@@ -26,7 +26,7 @@
 	<div id="sonScrollView">
 		<nav class="sonDongman-nav">
 			<a class="sonDongman-link">动漫</a>
-			<a class="sonManhua_link">漫画</a>
+			<a class="sonManhua_link" ng-click="getComicId()" ui-sref="comicDetail">漫画</a>
 		</nav>
 		<div class="sonVideo-box">
 			<video id="sonVideo-box" autoplay="autoplay" controls="controls">
@@ -67,7 +67,24 @@
 						<div>{{arrMSG.intro}}</div>
 					</div>
 				</div>
-				<div class="box">3</div>
+				<div class="box">
+					<div class="discuss">
+						<p>评论 ({{arrDiscuss[0].floor}})</p>
+						<textarea placeholder="女主萌不萌？发表你的评论，来战！"></textarea>
+						<div class="inputMsg">
+							<span>您还可以输入150字</span>
+							<button>发表评论</button>
+						</div>
+						<div class="allDiscuss" ng-repeat="obj in arrDiscuss">
+							<span class="headImg" style="background-image: url({{obj.xxMember.face}});"></span>
+							<div class="userName">{{obj.xxMember.nickname}}
+								<span>{{arrUserTime}}</span>
+							</div>
+							<div class="userMsg">{{obj.content}}</div>
+							<span class="rback">回复</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
