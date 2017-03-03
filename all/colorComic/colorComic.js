@@ -13,7 +13,7 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 		return $http.get(url);
 	}
 }])
-.controller('ColorCtrl',['$scope',"pubvar",'colorData',function($scope,pubvar,colorData){
+.controller('ColorCtrl',['$scope','colorData',function($scope,colorData){
 //	彩漫大图数据拿取使用
 	colorData.get("http://m.u17.com/banner/caiman").success(function(res){
 		$scope.showImage = res;
@@ -21,7 +21,8 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 		$scope.showId = new String($scope.showImage.link).substring($scope.showImage.link.length-11,$scope.showImage.link.length-5);
 	});
 //彩漫书籍列表数据拿取使用
-	colorData.get('http://m.u17.com/color/list?page=0&size=15').success(function(res){
+	$scope.colorPage=0;
+	colorData.get('http://m.u17.com/color/list?page='+$scope.colorPage+'&size=15').success(function(res){
 		$scope.colorList = res;
 		$scope.groupArr = ['少年','少女'];
 		$scope.tagArr = ['搞笑','魔幻','生活','','动作','科幻','','体育','','恋爱','恐怖','同人'];
@@ -42,7 +43,9 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 			return day;
 		}
 	})
+//	点击进入下一个界面传值
 	$scope.goDetail = function(id){
 		sessionStorage.setItem("id", id);
+		sessionStorage.setItem("flag","false");
 	}
 }])
