@@ -1,1 +1,35 @@
-<h1>user</h1>
+<div id="user">
+	<!--用户头部-->
+	<div class="wrap_header">
+		<div class="user_top_bar">
+			<a ui-sref="home" class="return_home"></a>
+			<div class="user_title">个人中心</div>
+			<div class="user_header_img"></div>
+		</div>
+	</div>
+	<div id="scrollView">
+		<div class="vip-section-box">
+			<div class="info-box">
+				<div class="photo-box"><img src="all/user/img/defaultsmall.gif" alt="" /></div>
+				<div class="info-box-right">
+					<div class="user-name">{{userName}}</div>
+					<div class="user-info-box">
+						<div class="user-level level1">等级 :</div>
+						<div class="yqb">妖气币 : <span class="red">0</span></div>
+						<div class="month-ticket">月票 : <span class="red">0</span></div>
+					</div>
+					<div class="remaining-time">会员到期 : 还剩 <span class="red">0</span> 天</div>
+				</div>
+			</div>
+			<div class="center-pay-box"><a href="" class="pay-btn">充值妖气币</a><a href="" class="vip-btn">成为VIP</a></div>
+		</div>
+		<div class="vip-section-box">
+			<a href="" class="center-link bookrack"><span class="icon"></span>我的书架</a>
+			<a href="" class="center-link record"><span class="icon"></span>消费记录</a>
+			<a href="" class="center-link contactus border-none"><span class="icon"></span>联系我们</a>
+		</div>
+		<div class="vip-section-box">
+			<a href="" class="exit-btn" ui-sref='home' ng-click="exit()">退出当前账号</a>
+		</div>
+	</div>
+</div>
