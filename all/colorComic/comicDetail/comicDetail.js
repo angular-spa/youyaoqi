@@ -18,19 +18,23 @@ angular.module('comicModule',['ui.router','angularCSS'])
 //	获取单本漫画信息,显示在页面上
 	comicData.get('http://m.u17.com/comic/'+sessionStorage.getItem('id')).success(function(res){
 		$scope.comicDetailData = res;
+		$scope.pay = res.accredit;
 		$scope.timeDate = new Date($scope.comicDetailData.lastUpdateTime*1000).toLocaleDateString();
 		$scope.timeDate = $scope.timeDate.replace(/\//g,'-');
 		$scope.groupArr = ['少年','少女'];
-		$scope.tagArr = ['搞笑','魔幻','生活','','动作','科幻','','体育','','恋爱','恐怖','同人'];
+		$scope.tagArr = $scope.tagArr = ['搞笑','魔幻','生活','恋爱','动作','科幻','战争','体育','推理','','恐怖','同人'];
 		$scope.keyword = $scope.comicDetailData.themeIds;
 		var the = $scope.keyword.split(",");
 		var str="";
 		for(var i=0;i<the.length;i++){
-			if(i<the.length-1){
+			if(i<the.length-1&&the[i]!=10){
 				str = str+$scope.tagArr[the[i]-1]+"/";
 			}else{
 				str = str+$scope.tagArr[the[i]-1];
 			}
+		}
+		if(str[str.length-1]=="/"){
+			str = str.substring(0,str.length-1);
 		}
 		$scope.str = str;
 		$scope.chapterNum = $scope.comicDetailData.chapterNum;
@@ -41,6 +45,9 @@ angular.module('comicModule',['ui.router','angularCSS'])
 				($('<a href="javascript:void(0)" class="chapter">'+i+'</a>')).insertBefore($(".other"));
 			}
 			$(".show_chapter").append($('<a href="javascript:void(0)" class="chapter">'+i+'</a>'));
+			if($scope.pay==3){
+				$(".chapter").addClass("pay");
+			}
 		}
 	})
 	
@@ -142,10 +149,7 @@ angular.module('comicModule',['ui.router','angularCSS'])
 	if(loginflag==undefined){
 		loginflag="false";
 	}
-	console.log(loginflag);
 	checkStatus(loginflag);
-	console.log(sessionStorage.getItem("currentUser"));
-	console.log(loginflag);
 	function checkStatus(loginflag){
 		if(loginflag=="false"){
 			$(".join_collec>a").removeClass("need");
@@ -176,7 +180,6 @@ angular.module('comicModule',['ui.router','angularCSS'])
 			var recent = current.recently;
 			var lock = false;
 			if(recent.length!=0){
-				console.log(recent);
 				for(var i=0;i<recent.length;i++){
 					if(recent[i].comicId==sessionStorage.getItem("id")){
 						lock=true;
@@ -202,7 +205,6 @@ angular.module('comicModule',['ui.router','angularCSS'])
 		recent.push($scope.comicDetailData);
 		sessionStorage.setItem("currentUser",JSON.stringify(current));
 		var totalStr = JSON.parse(localStorage.getItem('user'));
-		console.log(totalStr);
 		for(var i=0;i<totalStr.length;i++){
 			if(totalStr[i].userName == current.userName){
 				totalStr.splice(i,1,current);

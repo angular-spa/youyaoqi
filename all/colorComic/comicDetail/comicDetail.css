@@ -46,6 +46,7 @@
 .all_text{width: 0.6rem;height: 0.6rem;background: url(../image/push_all.png) no-repeat center center;background-size: 100% auto;position: absolute;right: 0.4rem;bottom: 0.36rem;transform: rotate(0deg);transition: all 0.2s;}
 .all_text.top{transform: rotate(-180deg);}
 .chapter-box>a,.show_chapter>a{float: left;height: 1.5625rem;width: 20%;margin: 0.15625rem 2.5%;text-align: center;line-height: 1.5625rem;border: 0.03125rem solid #9b9b9b;color: #999999;border-radius: 0.28125rem;background: #FFFFFF;}
+.chapter.pay{background-image: url(../image/icon_read_pay.png);background-repeat: no-repeat;background-size: 0.6875rem auto;background-position: right top;}
 .chapter.other{background: #fff url(../image/icon_read_other.png) no-repeat center center;background-size: 0.625rem auto;}
 .recommend{width: 96%;margin: 0.46875rem auto 0 auto;overflow: hidden;}
 .recommend_title{padding-left: 0.15625rem;color: #999999;line-height: 0.75rem;}

@@ -20,3 +20,19 @@
 .recommend_list>li>a>.recommend_img{display: block;width: 100%;height: 3.636875rem;background-repeat: no-repeat;background-size: 100% auto;}
 .recommend_list>li>a>.recommend_name{color: #333333;font-size: 0.4375rem;margin-top: 0.0625rem;}
 .search_main{width: 100%;height:100%;overflow-y: auto;position: absolute;top: 0;padding-top: 1.44rem;}
+.search_post_list{width: 100%;margin-top: 0.3125rem;display: none;}
+.search_post_list>li{background-color: #FFFFFF;width: 100%;height: 3.90625rem;margin-bottom:0.15625rem;}
+.search_post_list>li>a{display: block;position: relative;}
+.search_detail_box{width: 100%;position: absolute;padding: .15625rem .21875rem;height: 3.84375rem;top: 0;left: 0;background-color: #FFFFFF;border: 1px solid #bdbdbd;background-position: right top;background-repeat: no-repeat;background-size: 2.1875rem auto;}
+.search_detail_box.typeOne{background-image: url(../colorComic/image/status_one.png);}
+.search_detail_box.typeTwo{background-image: url(../colorComic/image/status_two.png);}
+.search_detail_box.typeThree{background-image: url(../colorComic/image/status_three.png);}
+.search_detail_box.typeFour{background-image: url(../colorComic/image/status_finish.png);}
+.search_detail_box>.detail_img{width: 2.8125rem;height: 3.53125rem;float: left;background-size: 100% 100%;}
+.search_detail_box>.detail_msg{float: left;margin-left: 0.3125rem;width: 4.0625rem;}
+.detail_msg>span{line-height:.8rem ;height: .75rem;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.book_name{font-size: .5rem;margin-top: 0.0625rem;margin-bottom: .1875rem;}
+.book_author{font-size: 0.40625rem;margin-bottom: .125rem;color: #999;padding-left: .78125rem;background: url(../colorComic/image/icon_read_author.png) no-repeat left center;background-size: .5625rem auto;}
+.book-praise{font-size: 0.40625rem;margin-bottom: .125rem;color: #999;padding-left: .78125rem;background: url(../colorComic/image/icon_read_praise.png) no-repeat left center;background-size: .5625rem auto;}
+.book-flag{font-size: 0.40625rem;margin-bottom: .125rem;color: #999;padding-left: .78125rem;background: url(../colorComic/image/icon_read_tag.png) no-repeat left center;background-size: .5625rem auto;}
+.book-updateTime{position: absolute;margin-left:35%;bottom: -0.03125rem;margin-bottom: .21875rem;font-size: .4375rem;padding-left: .78125rem;line-height: .75rem;background: url(../colorComic/image/icon_update_time.jpg) no-repeat left center;color: #e13511;background-size:.625rem .625rem ;}
