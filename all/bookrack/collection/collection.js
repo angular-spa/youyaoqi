@@ -17,4 +17,25 @@ angular.module('collectionModule',['ui.router'])
 			$(obj.target).addClass('checked');
 		}
 	}
+	
+	/*取到当前账号的收藏数据*/
+	getCollection();
+	function getCollection(){
+		if(sessionStorage.getItem('currentUser')){
+			var currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+			$scope.collection = currentUser.collection;
+		}
+	}
+	
+	$scope.getUpdateTime = function(time){
+		var date_ = new Date();
+		date_.setTime(time*1000);
+		var year = date_.getFullYear();
+		var month = date_.getMonth();
+		var day = date_.getDate();
+		month%10!=month?month=month:month='0'+month;
+		day%10!=day?day=day:day='0'+day;
+		var dateStr = year+'-'+month+'-'+day;
+		return dateStr;
+	}
 }])

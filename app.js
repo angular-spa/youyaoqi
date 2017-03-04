@@ -14,3 +14,4 @@ $(window).resize(function(){
 	size = $(window).width()/10;
 	$("html").css("font-size",size);
 })
+

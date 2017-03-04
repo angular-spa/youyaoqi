@@ -6,8 +6,8 @@
 			<div class="bookrack_title">书架</div>
 			<div class="bookrack_header_img" ng-class="{'show':delShowSlag}" ng-click="delShow()"></div>
 			<div class="del-choose" ng-class="{'show':!delShowSlag}">
-				<span id='select-all'>全选</span>
-				<span id="del">删除</span>
+				<span id='select-all' ng-click="selectAndCancel(selflag,$event)">全选</span>
+				<span id="del" ng-click="del()">删除</span>
 				<span id="return" ng-click="delShow()">返回</span>
 			</div>
 		</div>
