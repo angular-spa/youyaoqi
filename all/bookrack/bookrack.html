@@ -1,1 +1,15 @@
-<h1>bookrack</h1>
+
+<div id="bookrack">
+	<!--书架头部-->
+	<div class="wrap_header">
+		<div class="bookrack_top_bar">
+			<a ui-sref="home" class="return_home"></a>
+			<div class="bookrack_title">书架</div>
+			<div class="bookrack_header_img"></div>
+		</div>
+	</div>
+	<div id="scrollView">
+		<nav class="bookrack-top-nav"><a href="" ui-sref='bookrack.collection' ng-click="curflag=1" ng-class="{'cur':curflag==1}">我的收藏</a><a href="" ng-click="curflag=2" ng-class="{'cur':curflag==2}">最近阅读</a></nav>
+		<div ui-view></div>
+	</div>
+</div>

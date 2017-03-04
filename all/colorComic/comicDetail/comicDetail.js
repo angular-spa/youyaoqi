@@ -14,6 +14,7 @@ angular.module('comicModule',['ui.router','angularCSS'])
 	}
 }])
 .controller('comicCtrl',['$scope','comicData',function($scope,comicData){
+	$scope.flag = sessionStorage.getItem('flag');
 //	获取单本漫画信息,显示在页面上
 	comicData.get('http://m.u17.com/comic/'+sessionStorage.getItem('id')).success(function(res){
 		$scope.comicDetailData = res;
@@ -37,10 +38,9 @@ angular.module('comicModule',['ui.router','angularCSS'])
 		for(var i=Number($scope.chapterNum);i>0;i--){
 			n++;
 			if(n<8){
-				$(".chapter-box").append($('<a href="javascript:void(0)" class="chapter">'+i+'</a>'));
-			}else if(n==8){
-				$(".chapter-box").append($('<a href="javascript:void(0)" class="chapter other"></a>'));
+				($('<a href="javascript:void(0)" class="chapter">'+i+'</a>')).insertBefore($(".other"));
 			}
+			$(".show_chapter").append($('<a href="javascript:void(0)" class="chapter">'+i+'</a>'));
 		}
 	})
 	
@@ -82,6 +82,7 @@ angular.module('comicModule',['ui.router','angularCSS'])
 //	点击切换页面保存id
 	$scope.goDetail=function(id){
 		sessionStorage.setItem("id", id);
+		sessionStorage.getItem('flag',"false");
 	}
 	
 //	控制评论字数
@@ -106,11 +107,113 @@ angular.module('comicModule',['ui.router','angularCSS'])
 								'<span class="reader_name">'+res[i].xxMember.nickname+'</span>'+
 								'<span class="reader_time">'+time+'</span>'+
 							'</div>');
-				var item = $('<div class="comment_message">'+res[i].content+'</div><div class="reply_btn">回复</div>');
+				var item = $('<div class="comment_message">'+res[i].content+'</div><div class="reply_btn">回复</div><div class="clear"></div>');
 				detail.append(info).append(item);
 				liEle.append(img).append(detail);
 				$(".comment_list").append(liEle);
 			}
 		})
+		$scope.test = function(){
+			console.log("test");
+		}
+	}
+//	点击分享
+	$scope.shore_way = function(){
+		$(".shore_box").css("display","block");
+		$(".shore_box").addClass("opacity");
+	}
+//	关闭分享
+	$scope.closeShare=function(){
+		$(".shore_box").css("display","none");
+		$(".shore_box").removeClass("opacity");
+	}
+//	展开章节
+	$scope.showAllChatper= function(){
+		$(".chapter_black").css("display","block");
+		$(".chapter_black").addClass("opacity");
+	}
+//	关闭完整章节
+	$scope.closeChapter=function(){
+		$(".chapter_black").css("display","none");
+		$(".chapter_black").removeClass("opacity");
+	}
+//	进入时判断状态
+	var loginflag = sessionStorage.getItem("loginflag");
+	if(loginflag==undefined){
+		loginflag="false";
+	}
+	checkStatus(loginflag);
+	function checkStatus(loginflag){
+		if(loginflag=="false"){
+			$(".join_collec>a").removeClass("need");
+			$(".join_collec>a:nth-of-type(2)").addClass("need");
+		}else if(loginflag=="true"){
+			var current = JSON.parse(sessionStorage.getItem("currentUser"));
+			var userArr = current.collection;
+			var aim = false;
+			if(userArr.length!=0){
+				for(var i=0;i<userArr.length;i++){
+					if(userArr[i].comicId==sessionStorage.getItem("id")){
+						aim=true;
+					}
+				}
+				if(aim){
+					$(".join_collec>a").removeClass("need");
+					$(".join_collec>a:nth-of-type(3)").addClass("need");
+				}else{
+					$(".join_collec>a").removeClass("need");
+					$(".join_collec>a:nth-of-type(1)").addClass("need");
+				}
+			}else{
+				$(".join_collec>a").removeClass("need");
+				$(".join_collec>a:nth-of-type(1)").addClass("need");
+			}
+		}
+	}
+	
+//	点击添加收藏
+	$scope.join_collect=function(){
+		var current = JSON.parse(sessionStorage.getItem("currentUser"));
+		var userArr = current.collection;
+		userArr.push($scope.comicDetailData);
+		sessionStorage.setItem("currentUser",JSON.stringify(current));
+		var totalStr = JSON.parse(localStorage.getItem('user'));
+		for(var i=0;i<totalStr.length;i++){
+			if(totalStr[i].userName == current.userName){
+				totalStr.splice(i,1,current);
+			}
+		}
+		localStorage.setItem("user",JSON.stringify(totalStr));
+		checkStatus(loginflag);
+		$(".success_collect").css("display","block");
+	}
+	
+//	取消收藏功能
+	$scope.remove_collect=function(){
+		var current = JSON.parse(sessionStorage.getItem("currentUser"));
+		var userArr = current.collection;
+		for(var i=0;i<userArr.length;i++){
+			if(userArr[i].comicId==$scope.comicDetailData.comicId){
+				userArr.splice(i,1);
+			}
+		}
+		sessionStorage.setItem("currentUser",JSON.stringify(current));
+		var totalStr = JSON.parse(localStorage.getItem('user'));
+		for(var i=0;i<totalStr.length;i++){
+			if(totalStr[i].userName == current.userName){
+				totalStr.splice(i,1,current);
+			}
+		}
+		localStorage.setItem("user",JSON.stringify(totalStr));
+		checkStatus(loginflag);
+	}
+	
+//判断从哪个按钮点进登录界面的(user,bookrank)登录界面点击登录按钮时会将此值赋给ui-sref
+	$scope.flagToWhitch = function(str){
+		sessionStorage.setItem('whitchFlag',str);
+	}
+//	点击黑幕消失收藏成功
+	$scope.removeThis=function(){
+		$(".success_collect").css("display","none");
 	}
 }])

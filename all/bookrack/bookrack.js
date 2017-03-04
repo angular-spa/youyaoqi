@@ -1,4 +1,4 @@
-angular.module('bookrackModule',['ui.router'])
+angular.module('bookrackModule',['ui.router','collectionModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('bookrack',{
@@ -9,5 +9,5 @@ angular.module('bookrackModule',['ui.router'])
 	})
 })
 .controller('bookrackCtrl',['$scope',function($scope){
-	
+	$scope.curflag = 1;
 }])

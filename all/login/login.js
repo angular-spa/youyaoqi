@@ -25,6 +25,7 @@ angular.module('loginModule',['ui.router','registerModule'])
 				if(userName == localArr[i].userName && psd == localArr[i].psd){
 					console.log("登陆成功");
 					sessionStorage.setItem('loginflag',true);
+					sessionStorage.setItem('currentUser',JSON.stringify(localArr[i]));
 					url_ = sessionStorage.getItem('whitchFlag');
 					location.href = origin+path+'#/'+url_;
 					break;

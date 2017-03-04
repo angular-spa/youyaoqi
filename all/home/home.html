@@ -2,10 +2,10 @@
 	<header id="homeheader">
 		<div id="logo"></div>
 		<div id="iconheader">
-			<a href="" ng-if="loginflag" ui-sref='user' class="login-user" id="userheader"></a>
-			<a href="" ng-if="!loginflag" ui-sref='login' class="login-user" ng-click="flagToWhitch('user')"></a>
-			<a href="" id="bookrackheader" ng-if="loginflag" ui-sref='bookrack'></a>
-			<a href="" ng-if="!loginflag" ui-sref='login' class="login-book" ng-click="flagToWhitch('bookrack')"></a>
+			<a href="" ng-if="loginflag=='true'" ui-sref='user' class="login-user" id="userheader"></a>
+			<a href="" ng-if="loginflag=='false'" ui-sref='login' class="login-user" ng-click="flagToWhitch('user')"></a>
+			<a href="" id="bookrackheader" ng-if="loginflag=='true'" ui-sref='bookrack'></a>
+			<a href="" ng-if="loginflag=='false'" ui-sref='login' class="login-book" ng-click="flagToWhitch('bookrack')"></a>
 			<a href="" id="searchheader"></a>
 		</div>
 	</header>

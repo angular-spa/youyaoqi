@@ -3,7 +3,7 @@
 	<!--头部,同彩漫页面-->
 	<div class="wrap_header">
 		<div class="comic_top_bar">
-			<a href="javascript:history.go(-1)" class="return_prev"></a>
+			<a ui-sref="colorComic" class="return_prev"></a>
 			<div class="comic_title">漫画详情</div>
 			<div class="comic_header_img"></div>
 		</div>
@@ -31,8 +31,8 @@
 					<div class="comic_detail_msg">
 						<div class="comic_func">
 							<div class="line"></div>
-							<div class="shore_btn func_btn">
-								<div class="shore_text" ng-click="shore_way()">分享</div>
+							<div class="shore_btn func_btn"  ng-click="shore_way()">
+								<div class="shore_text">分享</div>
 							</div>
 							<a href="">
 								<div class="monthticket_btn func_btn">	
@@ -49,9 +49,11 @@
 							<a href="">开始阅读</a>
 						</div>
 						<div class="join_collec">
-							<a href="">加入收藏</a>
+							<a ng-click="join_collect()">加入收藏</a>
+							<a ui-sref="login" ng-click="flagToWhitch('comicDetail')">添加收藏</a>
+							<a ng-click="remove_collect()">取消收藏</a>
 						</div>
-						<a href="" class="tv"></a>
+						<a ui-sref="son" class="tv" ng-class="{true: 'show', false: 'hide'}[flag]"></a>
 					</div>
 				</div>
 				<!--漫画简介-->
@@ -60,7 +62,9 @@
 					<div class="all_text" ng-click="rotate($event)"></div>
 				</div>
 				
-				<div class="chapter-box"></div>
+				<div class="chapter-box">
+					<a ng-click="showAllChatper()" href="javascript:void(0)" class="chapter other"></a>
+				</div>
 				<div class="clear"></div>
 				
 				<!--猜你喜欢-->
@@ -88,6 +92,53 @@
 				<!--留言板-->
 				<ul class="comment_list"></ul>
 			</div>
+		</div>
+	</div>
+	<!--分享跳出-->
+	<div class="shore_box">
+		<div class="shore_inner_box">
+			<div class="shore_title">
+				分享至
+				<div style="background-image:url(all/colorComic/image/share_dialogWindow.png)"></div>
+				<span ng-click="closeShare()"></span>
+			</div>
+			<div class="share_type">
+				<div class="qq_zone">
+					<img src="all/colorComic/image/icon_share_qzone.png" alt="" />
+					QQ空间
+				</div>
+				<div class="qq">
+					<img src="all/colorComic/image/icon_share_qq.png" alt="" />
+					QQ
+				</div>
+				<div class="weibo">
+					<img src="all/colorComic/image/icon_share_sina.png" alt="" />
+					新浪微博
+				</div>
+				<div class="renren">
+					<img src="all/colorComic/image/icon_share_renren.png" alt="" />
+					人人网
+				</div>
+			</div>
+		</div>		
+	</div>
+	
+	<!--完整章节-->
+	<div class="chapter_black">
+		<div class="all_chapter">
+			<div class="chapter_box_title">
+				目录
+				<span ng-click="closeChapter()"></span>
+			</div>
+			<div class="show_chapter">
+				
+			</div>
+		</div>
+	</div>
+	<!--收藏成功-->
+	<div class="success_collect" ng-click="removeThis()">
+		<div class="collect_inner">
+			<div class="collect_title">收藏成功</div>
 		</div>
 	</div>
 </div>

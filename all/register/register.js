@@ -30,6 +30,7 @@ angular.module('registerModule',['ui.router'])
 				userObj.userName = userName;
 				userObj.psd = psd;
 				userObj.id = localArr.length;
+				userObj.collection = [];
 				localArr.push(userObj);
 				localStorage.setItem('user',JSON.stringify(localArr));
 			}
@@ -37,6 +38,7 @@ angular.module('registerModule',['ui.router'])
 			userObj.userName = userName;
 			userObj.psd = psd;
 			userObj.id = 0;
+			userObj.collection = [];
 			var localArr = [];
 			localArr.push(userObj);
 			localStorage.setItem('user',JSON.stringify(localArr));
