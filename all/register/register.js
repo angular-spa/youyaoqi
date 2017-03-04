@@ -45,5 +45,9 @@ angular.module('registerModule',['ui.router'])
 			localArr.push(userObj);
 			localStorage.setItem('user',JSON.stringify(localArr));
 		}
+		
+		var path = decodeURI(location.pathname);
+		var origin = location.origin
+		location.replace(origin+path+'#/login');
 	}
 }])

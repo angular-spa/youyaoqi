@@ -26,4 +26,9 @@ angular.module('userModule',['ui.router'])
 			sessionStorage.setItem('currentUser','');
 		}
 	}
+	//返回前一页功能
+	$scope.returnLastPage = function(){
+		history.go(-1);
+		console.log(history);
+	}
 }])

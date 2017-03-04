@@ -1,8 +1,5 @@
 <ul class="book-list" id="collection-list">
-	<li class="clearfloat" ng-repeat="obj in collection" comicId="{{obj.comicId}}">
-		<div class="del-warp">
-			<div class="book-del-box"><div class="checkbox" ng-click="checkStatus($event)"></div></div>
-		</div>
+	<li class="clearfloat" ng-repeat="obj in recently" comicId="{{obj.comicId}}">
 		<div class="book-detial-box">
 			<div class="imgCollection" style="background-image: url({{obj.cover}});"></div>
 			<div class="detial-box">
@@ -15,3 +12,4 @@
 		</div>
 	</li>
 </ul>
+
