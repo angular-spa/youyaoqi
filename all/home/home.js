@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','rankModule'])
-=======
-angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','searchModule','listModule'])
->>>>>>> bdb03a2981589a3aa3d26810de4c8fb72fc06098
+angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','searchModule','listModule','rankModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{
