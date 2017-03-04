@@ -1,0 +1,8 @@
+.book-list{width:11.3888889rem;position: relative;left: -1.3888889rem;transition: all 0.15s ease-out;}
+.book-list>li{height: 3.4722222rem;margin-bottom: 0.1388889rem;}
+.book-list>li>div{float: left;height: 100%;}
+.book-del-box{width: 1.3888889rem;height: 100%;display: -webkit-box;-webkit-box-pack: center;-webkit-box-align: center;}
+.checkbox{width: 0.5555556rem;height: 0.5555556rem;border: 1px solid #c0bdbf;box-shadow: 0 0 5px #c0bdbf;background-color: #fff;}
+.checked{background: url(img/icon_check.png) no-repeat center center;background-size: 90%;}
+.book-detial-box{background: url(img/status_new.png) no-repeat right top;background-size: 1.9444444rem auto;width: 10rem;}
+.aniShow{left: 0;}

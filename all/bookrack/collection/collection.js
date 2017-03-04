@@ -9,5 +9,12 @@ angular.module('collectionModule',['ui.router'])
 	})
 })
 .controller('collectionCtrl',['$scope',function($scope){
-	
+	//给所有的checkbox设置点击事件
+	$scope.checkStatus = function(obj){
+		if($(obj.target).hasClass('checked')){
+			$(obj.target).removeClass('checked');
+		}else{
+			$(obj.target).addClass('checked');
+		}
+	}
 }])

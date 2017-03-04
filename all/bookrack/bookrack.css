@@ -3,8 +3,13 @@
 .return_home{position: absolute;height: 1rem;width: 1rem;left: 0.125rem;top: 0.23rem;background:url(../colorComic/image/header_back.png) no-repeat center center;background-size: 70% auto;}
 .bookrack_title{font-size: 0.5625rem;height: 100%;color: #999;display: inline-block;position: relative;padding-left: 0.8889rem;}
 .bookrack_title:before{content: "";width: 0.8889rem;height: 0.8889rem;position: absolute;left: 0;top: 18%;background: url(img/icon_title_bookrack.png) no-repeat center center;background-size: 70% auto;}
-.bookrack_header_img{position: absolute;height: 0.8889rem;width:0.8889rem;right: 0.15rem;top: 0.3056rem;background: url(img/icon_delete.png) no-repeat center center;background-size: 0.5rem auto;}
+.bookrack_header_img{display: none;position: absolute;height: 0.8889rem;width:0.8889rem;right: 0.15rem;top: 0.3056rem;background: url(img/icon_delete.png) no-repeat center center;background-size: 0.5rem auto;}
 #scrollView{position: relative;padding-top: 0.2778rem;width: 100%;}
 .bookrack-top-nav{height: 1.2222222rem;border-top: 2px solid #99cb4b;border-bottom: 2px solid #99cb4b;}
 .bookrack-top-nav>a{float: left;width: 50%;height: 1.1111111rem;line-height: 1.1111111rem;text-align: center;color: #99cb4b;background-color: #fff;}
 .bookrack-top-nav>a.cur{background-color: #99cb4b;color: #fff;}
+#bookrackview{width: 100%;margin-top: 0.2777778rem;}
+.del-choose{position: absolute;right: 0.1388889rem;top: 0.4444444rem;height: 0.6666667rem;line-height: 0.6666667rem;display: none;}
+.del-choose>span{display: inline-block;color: #999;font-size: 0.3333333rem;padding: 0 0.1666667rem;}
+#del{border-left: 1px solid #ccc;border-right: 1px solid #ccc;}
+.show{display: block;}
