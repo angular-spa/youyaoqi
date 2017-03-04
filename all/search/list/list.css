@@ -1,0 +1,5 @@
+.search_box{font-family: "新宋体";height: 100%;width: 100%;background: #eee;position: relative;}
+.list_top_bar{height: 1.44rem;position: relative;z-index: 100;text-align: center;line-height: 1.44rem;background-image: url(../../colorComic/image/header_bg_repeat.jpg);}
+.return_home{position: absolute;height: 1rem;width: 1rem;left: 0.125rem;top: 0.2rem;background:url(../../colorComic/image/header_back.png) no-repeat center center;background-size: 70% auto;}
+.list_title{position: relative;z-index: 2;font-size: 0.5625rem;text-align: center;height: 1rem;padding-left: 1rem;color: #999;display: inline-block;margin-top: 0.2rem;line-height: 1.1rem;}
+.list_title:before{content: "";width: 1rem;height: 1rem;position: absolute;left: 0;top: 0; no-repeat center center;background-size: 70% auto;}

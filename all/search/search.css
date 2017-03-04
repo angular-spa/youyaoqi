@@ -1,0 +1,22 @@
+.search_box{font-family: "新宋体";height: 100%;width: 100%;background: #eee;position: relative;}
+.search_top_bar{height: 1.44rem;position: relative;z-index: 100;text-align: center;line-height: 1.44rem;background-image: url(../colorComic/image/header_bg_repeat.jpg);}
+.return_home{position: absolute;height: 1rem;width: 1rem;left: 0.125rem;top: 0.2rem;background:url(../colorComic/image/header_back.png) no-repeat center center;background-size: 70% auto;}
+.search_title{position: relative;z-index: 2;font-size: 0.5625rem;text-align: center;height: 1rem;padding-left: 1rem;color: #999;display: inline-block;margin-top: 0.2rem;line-height: 1.1rem;}
+.search_title:before{content: "";width: 1rem;height: 1rem;position: absolute;left: 0;top: 0;background: url(../colorComic/image/icon_title_search.png) no-repeat center center;background-size: 70% auto;}
+.search_header_img{position: absolute;height: 1.44rem;width:3.125rem;right: 0;top: 0;text-align: right;background: url(../colorComic/image/header_right_color.png) no-repeat;background-size: auto 100%;}
+.search_scroll{width: 100%;position: relative;padding-top: 0.3125rem;}
+.search_input{width: 94%;height: 1.0625rem;margin: 0.3125rem 0 0 3%;position: relative;}
+.search_content{width: 100%;padding-right: 1.5625rem;border-radius: 0.75rem;border: 0.03125rem solid #bdbdbd;line-height: 1.0625rem;height: 1.0625rem;padding: 0 2.8125rem 0 0.625rem;resize: none;outline: none;}
+.search_btn{position: absolute;right: 0;top: 0;width: 2.5rem;height: 1.0625rem;line-height: 1.0625rem;border-radius: 0 0.53125rem 0.53125rem 0;color: #fff;padding-left: 0.9375rem;background: url(../colorComic/image/icon_search_btn.jpg) 0.25rem 0.28125rem no-repeat #99cb4b;background-size: 0.5625rem;}
+.comic_sort{margin-top: 0.625rem;}
+.sort_tag{padding-left: 0.15625rem;color: #999;line-height: 0.75rem;}
+.all_sort{padding: 0.3125rem 2%;display: flex;flex-wrap: wrap;}
+.all_sort>div{width: 20%;height: 1.0625rem;margin: 0.15625rem auto;}
+.all_sort>div>a{display: block;border-radius: 0.5625rem;line-height: 0.5rem;padding: 0.25rem 0.28125rem;border: 0.03125rem solid #d7d7d7;color: #999;text-align: center;width: 1.6875rem;margin: 0 auto;}
+.reco_list{width: 96%;margin: 0 auto 0.5rem auto;}
+.reco_title{padding-left: 0.15625rem;color: #999;line-height: 0.75rem;}
+.recommend_list{overflow: hidden;margin-top: 0.3125rem;display:flex;flex-wrap: wrap;}
+.recommend_list>li{width: 30%;margin: 0 1.5% 0.25rem 1.5%;background-color: #FFFFFF;text-align: center;padding: 0.0625rem;}
+.recommend_list>li>a>.recommend_img{display: block;width: 100%;height: 3.636875rem;background-repeat: no-repeat;background-size: 100% auto;}
+.recommend_list>li>a>.recommend_name{color: #333333;font-size: 0.4375rem;margin-top: 0.0625rem;}
+.search_main{width: 100%;height:100%;overflow-y: auto;position: absolute;top: 0;padding-top: 1.44rem;}

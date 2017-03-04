@@ -3,7 +3,8 @@
 	<!--头部,同彩漫页面-->
 	<div class="wrap_header">
 		<div class="comic_top_bar">
-			<a ui-sref="colorComic" class="return_prev"></a>
+			<a href="javascript:history.go(-1)" class="return_prev"></a>
+			<a href="javascript:history.go(-3)" class="return_prev" ng-click="removeItem()"></a>
 			<div class="comic_title">漫画详情</div>
 			<div class="comic_header_img"></div>
 		</div>

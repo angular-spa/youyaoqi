@@ -216,4 +216,15 @@ angular.module('comicModule',['ui.router','angularCSS'])
 	$scope.removeThis=function(){
 		$(".success_collect").css("display","none");
 	}
+//	判断显示后退
+	if(sessionStorage.getItem("login")=="go"){
+		$(".comic_top_bar>a").css("display","none");
+		$(".comic_top_bar>a:last-of-type").css("display","block");
+	}else{
+		$(".comic_top_bar>a").css("display","none");
+		$(".comic_top_bar>a:first-of-type").css("display","block");
+	}
+	$scope.removeItem = function(){
+		sessionStorage.removeItem("login");
+	}
 }])
