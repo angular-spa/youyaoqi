@@ -27,6 +27,7 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 			$scope.listClick = function (i) {
 				var id = data[i].comicId;
 				sessionStorage.setItem("id",id);
+				sessionStorage.setItem("flag","false");
 			}
 			
 			

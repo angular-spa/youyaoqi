@@ -27,11 +27,18 @@ angular.module('loginModule',['ui.router','registerModule'])
 					sessionStorage.setItem('loginflag',true);
 					sessionStorage.setItem('currentUser',JSON.stringify(localArr[i]));
 					url_ = sessionStorage.getItem('whitchFlag');
+<<<<<<< HEAD
 					if(url_=='bookrack'){
 						location.replace(origin+path+'#/bookrack/collection');
 						break;
 					}
 					location.replace(origin+path+'#/'+url_);
+=======
+					location.href = origin+path+'#/'+url_;
+					if(url_=="comicDetail"){
+						sessionStorage.setItem("login","go");
+					}
+>>>>>>> bdb03a2981589a3aa3d26810de4c8fb72fc06098
 					break;
 				}
 			}

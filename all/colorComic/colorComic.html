@@ -25,7 +25,7 @@
 				<ul class="color_list">
 					<li ng-repeat='obj in colorList'>
 						<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)">
-							<div class="color_detail_box" ng-class="{'typeOne':obj.accredit==0||obj.accredit==1,'typeTwo':obj.accredit==2,'typeThree':obj.accredit==3}">
+							<div class="color_detail_box" ng-class="{'typeOne':(obj.accredit==0&&obj.seriesStatus==0)||(obj.accredit==1&&obj.seriesStatus==0),'typeTwo':obj.accredit==2,'typeThree':obj.accredit==3,'typeFour':(obj.seriesStatus==1)}">
 								<div class="detail_img" style="background-image: url({{obj.cover}});"></div>
 								<div class="detail_msg">
 									<span class="book_name">{{obj.name}}</span>

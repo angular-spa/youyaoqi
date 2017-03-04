@@ -1,0 +1,36 @@
+<div class="list_box">
+	
+	<!--列表头部-->
+	<div class="wrap_header">
+		<div class="list_top_bar">
+			<a href="javascript:history.go(-1)" class="return_home"></a>
+			<div class="list_title">{{typeName}}</div>
+		</div>
+	</div>
+	
+	<!--列表-->
+	<div class="list_inner">
+		<div>
+			<div class="lists">
+				<div class="list_scroll">
+					<ul class="list_ul">
+						<li ng-repeat="obj in listArr">
+							<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)">
+							<div class="list_detail_box" ng-class="{'typeOne':(obj.accredit==0&&obj.seriesStatus==0)||(obj.accredit==1&&obj.seriesStatus==0),'typeTwo':obj.accredit==2,'typeThree':obj.accredit==3,'typeFour':(obj.seriesStatus==1)}">
+								<div class="detail_img" style="background-image: url({{obj.cover}});"></div>
+								<div class="detail_msg">
+									<span class="book_name">{{obj.name}}</span>
+									<span class="book_author">{{obj.authorName}}</span>
+									<span class="book-praise" >{{(obj.comicExtra.clickTotal/10000).toFixed(1)}}万</span>
+									<span class="book-flag">{{groupArr[obj.groupIds-1]}}/{{tag(obj.themeIds)}}</span>
+									<span class="book-updateTime">{{updateTime(obj.lastUpdateTime)}}</span>
+								</div>
+							</div>
+						</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

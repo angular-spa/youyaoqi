@@ -1,0 +1,60 @@
+<div class="search_box">
+	
+	<!--搜索头部-->
+	<div class="wrap_header">
+		<div class="search_top_bar">
+			<a ui-sref="home" class="return_home"></a>
+			<div class="search_title">搜索</div>
+			<div class="search_header_img"></div>
+		</div>
+	</div>
+	
+	<!--主体-->
+	<div class="search_main">
+		<div class="search_scroll">
+			<div class="search_input">
+				<input type="text" class="search_content"/>
+				<div class="search_btn">搜索</div>
+			</div>
+			
+			<!--分类列表-->
+			<div class="comic_sort">
+				<div class="sort_tag">热门分类</div>
+				<div class="all_sort">
+					<div><a ui-sref="list" ng-click="changetheme(1)">搞笑</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(2)">魔幻</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(3)">生活</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(4)">恋爱</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(5)">动作</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(6)">科幻</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(7)">战争</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(8)">体育</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(9)">推理</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(11)">恐怖</a></div>
+					<div><a ui-sref="list" ng-click="changetheme(12)">同人</a></div>
+					<div><a ui-sref="list" ng-click="changeCategory(1)">少年</a></div>
+					<div><a ui-sref="list" ng-click="changeCategory(2)">少女</a></div>
+					<div><a ui-sref="list" ng-click="changeCategory(3)">耽美</a></div>
+					<div><a ui-sref="list" ng-click="changeCategory(4)">四格</a></div>
+					<div><a ui-sref="list" ng-click="changeStatus(1)">完结</a></div>
+					<div><a ui-sref="list" ng-click="changeStatus(2)">连载</a></div>
+					<div><a ui-sref="list" ng-click="changeStatus(3)">VIP</a></div>
+					<div><a ui-sref="list" ng-click="changeStatus(4)">付费</a></div>
+					<div><a ui-sref="list" ng-click="changeStatus(5)">签约</a></div>
+				</div>
+			</div>
+			<!--猜你喜欢-->
+			<div class="reco_list">
+				<div class="reco_title">猜你喜欢</div>
+				<ul class="recommend_list">
+					<li ng-repeat="(i,obj) in recommendList" ng-if="i<6">
+						<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)">
+							<div class="recommend_img" style="background-image: url({{obj.cover}});"></div>
+							<div class="recommend_name">{{obj.name}}</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
