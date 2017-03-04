@@ -142,11 +142,16 @@ angular.module('comicModule',['ui.router','angularCSS'])
 	if(loginflag==undefined){
 		loginflag="false";
 	}
+	console.log(loginflag);
 	checkStatus(loginflag);
+	console.log(sessionStorage.getItem("currentUser"));
+	console.log(loginflag);
 	function checkStatus(loginflag){
 		if(loginflag=="false"){
 			$(".join_collec>a").removeClass("need");
 			$(".join_collec>a:nth-of-type(2)").addClass("need");
+			$(".read_start>a").removeClass("read");
+			$(".read_start>a:first-of-type").addClass("read");
 		}else if(loginflag=="true"){
 			var current = JSON.parse(sessionStorage.getItem("currentUser"));
 			var userArr = current.collection;
@@ -168,9 +173,44 @@ angular.module('comicModule',['ui.router','angularCSS'])
 				$(".join_collec>a").removeClass("need");
 				$(".join_collec>a:nth-of-type(1)").addClass("need");
 			}
+			var recent = current.recently;
+			var lock = false;
+			if(recent.length!=0){
+				console.log(recent);
+				for(var i=0;i<recent.length;i++){
+					if(recent[i].comicId==sessionStorage.getItem("id")){
+						lock=true;
+					}
+				}
+				if(lock){
+					$(".read_start>a").removeClass("read");
+					$(".read_start>a:nth-of-type(3)").addClass("read");
+				}else{
+					$(".read_start>a").removeClass("read");
+					$(".read_start>a:nth-of-type(2)").addClass("read");
+				}
+			}else{
+				$(".read_start>a").removeClass("read");
+				$(".read_start>a:nth-of-type(2)").addClass("read");
+			}
 		}
 	}
-	
+//	点击阅读
+	$scope.join_recently=function(){
+		var current = JSON.parse(sessionStorage.getItem("currentUser"));
+		var recent = current.recently;
+		recent.push($scope.comicDetailData);
+		sessionStorage.setItem("currentUser",JSON.stringify(current));
+		var totalStr = JSON.parse(localStorage.getItem('user'));
+		console.log(totalStr);
+		for(var i=0;i<totalStr.length;i++){
+			if(totalStr[i].userName == current.userName){
+				totalStr.splice(i,1,current);
+			}
+		}
+		localStorage.setItem("user",JSON.stringify(totalStr));
+		checkStatus(loginflag);
+	}
 //	点击添加收藏
 	$scope.join_collect=function(){
 		var current = JSON.parse(sessionStorage.getItem("currentUser"));

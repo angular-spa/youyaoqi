@@ -31,7 +31,10 @@
 .shore_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #fddb33;}
 .ticket_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #00a5e3;}
 .commit_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #ff7800;}
-.read_start>a{display: block;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;background-color: #9ebb2d;color: #FFFFFF;border-radius: 0.15625rem;}
+.read_start>a{display: none;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;background-color: #9ebb2d;color: #FFFFFF;border-radius: 0.15625rem;}
+.read_start>a:last-of-type{display: none;}
+.read_start>a:nth-of-type(2){display: none;}
+.read_start>a.read{display: block;}
 .join_collec>a{display: none;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;color: #333;border-radius: 0.15625rem;border:0.03125rem solid #d2d1d1;}
 .join_collec>a.need{display: block;}
 .tv{width: 1.71875rem;height: 1.71875rem;margin-left: 0.9375rem;background: url(../image/change_manhua.png) no-repeat center center;background-size: 100% auto;}
