@@ -29,36 +29,53 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 				sessionStorage.setItem("id",id);
 			}
 			
+			linee(data);
 			
 			
 		})
 	}
-	console.log(arrAll)
+//	console.log(data)
 	//得到排数
-	line();
-	function line () {
+
+	function linee (data) {
 		var count;
-		if (arrAll.length%3 == 0) {
-			count = arrAll.length/3;
+		if (data.length%3 == 0) {
+			count = data.length/3;
 			console.log(count);
-		}else if (arrAll.length%3 != 0) {
-			count = arrAll.length/3+1;
+		}else if (data.length%3 != 0) {
+			count = data.length/3+1;
 			console.log(count);
 		}
-		for (var k = 0 ; k < count ; k ++) {
-			var lineJq = $("<div class='leftline'></div>");
-			$(".line").append(lineJq);
+		for (var k = 0 ; k <= count ; k ++) {
+			var bg = $("<b class='bg'></b>");
+			$(".line1").append(bg);
+			var top = 0;
+			top = 4.2*k+"rem"
+			$(".bg").eq(k).css("margin-top",top)
+			$(".bg").eq(0).css("display","none")
+			$(".bg").eq(11).css("display","none")
 		}
-	
+		//画线
+		var lineJq = $("<div class='leftline'></div>");
+		$(".line").append(lineJq);
+		$(".leftline").css("height","660px")
 	}
 var num = 0
 $("#upContent").on("scroll",function(){
-	
+	//滚动画线
+	$(".leftline").css("height","660px")
+	var top = 600 + $("#upContent").scrollTop() -10 + "px";
+	$(".leftline").css("height",top)
+	for (var i = 5 ; i <= 10 ; i ++) {
+		var top = 0;
+		top = 4.2*i+"rem"
+		$(".bg").eq(i).css("margin-top",top);
+	}
 	if ($("#upContent").scrollTop() >= 240 && $("#upContent").scrollTop()<=250) {
 		num++;
 		if (num==1) {
-//			$(".line").html();
-//			line()
+//			$(".bg").remove();
+//			linee(arrAll)
 			page=15;
 			mgList (page);
 		}

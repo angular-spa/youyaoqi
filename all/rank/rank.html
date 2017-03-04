@@ -1,0 +1,22 @@
+<div id="rankContent">
+	<div id="rankTop">
+		<a href="#home" class="rankHeader-back"></a>
+		<div class="rankHeader-title">
+				排行榜
+		</div>
+	</div>
+	<div class="rankListContent">
+		<a ui-sref="comicDetail" ng-repeat="(i,obj) in arrRank" ng-click="rankClick(i)">
+			<div class="rankList" >
+				<div style="background-image: url({{obj.cover}});"></div>
+				<ul>
+					<li>{{obj.name}}</li>
+					<li><span></span> {{obj.authorName}}</li>
+					<li><span></span> {{arrT[i]}}</li>
+					<li><span></span> {{arrClickWeek[i]}}万</li>
+				</ul>
+			</div>
+		</a>
+		<span ng-repeat="obja in arrSpan" class="title">{{obja}}</span>
+	</div>
+</div>
