@@ -1,0 +1,28 @@
+<div id="upContent" infinite-scroll="mgList ()" infinite-scroll-distance="0">
+	<div id="upTop">
+		<a href="#home" class="upHeader-back"></a>
+		<div class="upHeader-title">
+				最近更新
+		</div>
+	</div>
+	<div class="allContent">
+		<div class="upList">
+			<div class="line"><!--<div class="leftline"></div>--></div>
+			<div class="rightList">
+				<p>今天</p>
+				<div class="upMgList">
+					<ul>
+						<a ui-sref="comicDetail"  ng-repeat="(i,obj) in arrList" ng-click="listClick(i)">
+							<li>
+								<div style="background-image: url({{obj.cover}});"></div>
+								<p>{{obj.name}}</p>
+								<span>{{obj.authorName}}</span>
+							</li>
+						</a>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

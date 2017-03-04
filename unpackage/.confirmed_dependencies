@@ -10,7 +10,16 @@
 			"reset.css",
 			"lib/jquery.min.js",
 			"lib/swiper.jquery.min.js",
-			"css/swiper.min.css"
+			"css/swiper.min.css",
+			"all/bookrack/bookrack.js",
+			"all/colorComic/comicDetail/comicDetail.js",
+			"all/manga/manga.js",
+			"all/colorComic/colorComic.js",
+			"all/manga/son/son.js",
+			"all/login/login.js",
+			"all/update/update.js",
+			"all/register/register.js",
+			"all/user/user.js"
 		]
 	}
 }

@@ -26,7 +26,7 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 		$scope.mgClick = function (i){
 			var arrUrlId = [];
 			arrUrlId.push(arrId[i]);
-			localStorage.setItem("sonId",JSON.stringify(arrUrlId));
+			sessionStorage.setItem("id1",JSON.stringify(arrUrlId));
 //			console.log(JSON.parse(localStorage.getItem("sonId")));
 		}
 });
@@ -40,9 +40,9 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 //				console.log(data[i].cartoonId);
 				var arrTopId = [];
 				arrTopId.push(data[i].cartoonId);
-				localStorage.setItem("sonId",JSON.stringify(arrTopId));
+				sessionStorage.setItem("id1",JSON.stringify(arrTopId));
 //				console.log(JSON.parse(localStorage.getItem("sonId1")));
-
+				
 			}
 		});
 		

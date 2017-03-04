@@ -15,7 +15,7 @@ angular.module('sonModule',['ui.router','angularCSS'])
 }])
 .controller('sonCtrl',['$scope','pubvar','mangaData2',function($scope,pubvar,mangaData2){
 	//取数据
-	var id = JSON.parse(localStorage.getItem("sonId"));
+	var id = JSON.parse(sessionStorage.getItem("id1"));
 	
 	mangaData2.get('http://m.u17.com/cartoon/series/'+id[0],function(data){
 		all(data);
@@ -48,7 +48,7 @@ angular.module('sonModule',['ui.router','angularCSS'])
 						$(".sonVideo-box>video").attr("src",data1[m].link);
 						$(".sonVideo-box>p").text(data1[m].name)
 					});
-					console.log(data1[m])
+//					console.log(data1[m])
 				}
 			}
 		})
@@ -66,7 +66,8 @@ angular.module('sonModule',['ui.router','angularCSS'])
 				for (k in details[i]) {
 //					console.log(details[i][k]);
 					if (details[i][k].cartoonId == id[0]) {
-						console.log(details[i][k])
+//						console.log(details[i][k].comicId)
+						var threadId = details[i][k].threadId;
 						$scope.arrMSG = details[i][k];
 						var newTime = new Date();
 						newTime.setTime(details[i][k].publishTime*1000);
@@ -75,7 +76,36 @@ angular.module('sonModule',['ui.router','angularCSS'])
 						var day = newTime.getDate();
 						var times = year+"-"+month+"-"+day
 						$scope.arrTime = times;
-//						
+						//漫画跳转
+						var id1 = details[i][k].comicId;
+//						console.log(id1)
+						$scope.getComicId = function () {
+							sessionStorage.setItem("id",id1);
+//							console.log(sessionStorage.getItem("id"))
+							sessionStorage.setItem("flag","true");
+						}
+						
+						
+						
+						//评论
+						mangaData2.get('http://m.u17.com/comment_other/list?threadId='+threadId+'&page=1&pageSize=',function(data1){
+//							console.log(data1);
+							$scope.arrDiscuss = data1;
+							for (t in data1){
+								var newTime = new Date();
+								newTime.setTime(data1[t].createTime*1000);
+								var year = newTime.getFullYear();
+								var month = newTime.getMonth()+1;
+								var day = newTime.getDate();
+								var hour = newTime.getHours();
+								var minute = newTime.getMinutes();
+//								console.log(minute)
+								var times = year+"-"+month+"-"+day+" "+hour+":"+minute
+								$scope.arrUserTime = times;
+							}
+						})
+						
+
 					}
 				}
 			}
@@ -119,7 +149,7 @@ angular.module('sonModule',['ui.router','angularCSS'])
 				//联动
 				$(".box").each(function(j){
 					if(i==j){
-						console.log(j)
+//						console.log(j)
 						$(".box").eq(j).show()
 					}
 				});
@@ -129,15 +159,6 @@ angular.module('sonModule',['ui.router','angularCSS'])
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//头部
 	var topNum = 0;
 	$(".sonHeaderList").on("touchstart",function(){
@@ -145,10 +166,10 @@ angular.module('sonModule',['ui.router','angularCSS'])
 			console.log(data);
 			$scope.arrTopList = data;
 			$scope.topLClick =function (i) {
-				console.log(data[i].cartoonId);
+//				console.log(data[i].cartoonId);
 				var arrTopId = [];
 				arrTopId.push(data[i].cartoonId);
-				localStorage.setItem("sonId",JSON.stringify(arrTopId));
+				sessionStorage.setItem("id1",JSON.stringify(arrTopId));
 //				console.log(JSON.parse(localStorage.getItem("sonId1")));
 
 			}
