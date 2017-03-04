@@ -1,5 +1,5 @@
 
-angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','searchModule','listModule'])
+angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','searchModule','listModule','rankModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{
