@@ -3,7 +3,8 @@
 	<!--头部,同彩漫页面-->
 	<div class="wrap_header">
 		<div class="comic_top_bar">
-			<a ui-sref="colorComic" class="return_prev"></a>
+			<a href="javascript:history.go(-1)" class="return_prev"></a>
+			<a href="javascript:history.go(-3)" class="return_prev" ng-click="removeItem()"></a>
 			<div class="comic_title">漫画详情</div>
 			<div class="comic_header_img"></div>
 		</div>
@@ -47,6 +48,8 @@
 						<!--开始阅读和收藏-->
 						<div class="read_start">
 							<a href="">开始阅读</a>
+							<a href="" ng-click="join_recently()">开始阅读</a>
+							<a href="">继续阅读</a>
 						</div>
 						<div class="join_collec">
 							<a ng-click="join_collect()">加入收藏</a>

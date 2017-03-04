@@ -19,6 +19,7 @@
 .color_detail_box.typeOne{background-image: url(image/status_one.png);}
 .color_detail_box.typeTwo{background-image: url(image/status_two.png);}
 .color_detail_box.typeThree{background-image: url(image/status_three.png);}
+.color_detail_box.fourThree{background-image: url(image/status_finish.png);}
 .color_detail_box>.detail_img{width: 2.8125rem;height: 3.53125rem;float: left;background-size: 100% 100%;}
 .color_detail_box>.detail_msg{float: left;margin-left: 0.3125rem;width: 4.0625rem;}
 .detail_msg>span{line-height:.8rem ;height: .75rem;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}

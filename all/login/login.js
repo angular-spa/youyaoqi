@@ -28,6 +28,9 @@ angular.module('loginModule',['ui.router','registerModule'])
 					sessionStorage.setItem('currentUser',JSON.stringify(localArr[i]));
 					url_ = sessionStorage.getItem('whitchFlag');
 					location.href = origin+path+'#/'+url_;
+					if(url_=="comicDetail"){
+						sessionStorage.setItem("login","go");
+					}
 					break;
 				}
 			}

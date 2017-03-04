@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','rankModule'])
+=======
+angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule','loginModule','userModule','bookrackModule','upDateModule','searchModule','listModule'])
+>>>>>>> bdb03a2981589a3aa3d26810de4c8fb72fc06098
 .config(function($stateProvider){
 	$stateProvider
 	.state('home',{
@@ -23,7 +27,8 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 		return $http.get(url_).success(sufn);
 	}
 }])
-.controller('homeCtrl',['$scope','pubvar','swiper','homeData',function($scope,pubvar,swiper,homeData){
+.controller('homeCtrl',['$scope','pubvar','swiper','homeData','$compile',function($scope,pubvar,swiper,homeData,$compile){
+
 	
 	/*登录flag*/
 	$scope.loginflag = 'false';
@@ -107,13 +112,15 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 					var img = data[i].comicCover;
 					var comicName = data[i].comicName;
 					var brief = data[i].brief;
+					var comicId = data[i].comicId;
 					var div = $('<div class="box">'+
-									'<a href="">'+
+									'<a href="" ng-click="toComic('+comicId+')" ui-sref="comicDetail">'+
 										'<img src="'+img+'" alt="" />'+
 										'<p class="titp">'+comicName+'</p>'+
 										'<p class="desp">'+brief+'</p>'+
 									'</a>'+
 								'</div>');
+					 $compile(div)($scope);
 					//图片加载完成之后再添加到页面,全部加载完成之后再开启ajax开关
 					div.find('img')[0].onload = function(){
 						if($('#puleft').outerHeight()/1<$('#puright').outerHeight()/1){
@@ -135,4 +142,10 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 			})
 		}
 	}
+	
+	$scope.toComic = function(comicId){
+		sessionStorage.setItem('id',comicId);
+		sessionStorage.setItem("flag","false");
+	}
+	
 }])

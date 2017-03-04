@@ -1,6 +1,6 @@
 .comic_detail{font-family: "新宋体";height: 100%;width: 100%;background: #eee;position: relative;}
 .comic_top_bar{height: 1.44rem;position: relative;z-index: 100;text-align: center;line-height: 1.44rem;background-image: url(../image/header_bg_repeat.jpg);}
-.return_prev{position: absolute;height: 1rem;width: 1rem;left: 0.125rem;top: 0.2rem;background:url(../image/header_back.png) no-repeat center center;background-size: 70% auto;}
+.return_prev{display:none;position: absolute;height: 1rem;width: 1rem;left: 0.125rem;top: 0.2rem;background:url(../image/header_back.png) no-repeat center center;background-size: 70% auto;}
 .comic_title{position: relative;z-index: 2;font-size: 0.5625rem;text-align: center;height: 1rem;padding-left: 1rem;color: #999;display: inline-block;margin-top: 0.2rem;line-height: 1.1rem;background-size: 70% auto;}
 .comic_title:before{content: "";width: 1rem;height: 1rem;position: absolute;left: 0;top: 0;background: url(../image/icon_title_info.png) no-repeat center center;background-size: 70% auto;}
 .comic_header_img{position: absolute;height: 1.44rem;width:3.125rem;right: 0;top: 0;text-align: right;background: url(../image/header_right_color.png) no-repeat;background-size: auto 100%;}
@@ -31,7 +31,10 @@
 .shore_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #fddb33;}
 .ticket_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #00a5e3;}
 .commit_text:before{border: 0.125rem solid transparent;border-right: 0.125rem solid #ff7800;}
-.read_start>a{display: block;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;background-color: #9ebb2d;color: #FFFFFF;border-radius: 0.15625rem;}
+.read_start>a{display: none;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;background-color: #9ebb2d;color: #FFFFFF;border-radius: 0.15625rem;}
+.read_start>a:last-of-type{display: none;}
+.read_start>a:nth-of-type(2){display: none;}
+.read_start>a.read{display: block;}
 .join_collec>a{display: none;margin: 0.2rem 0 0 0.46875rem;width:2.8125rem;height: 1.25rem;line-height: 1.25rem;text-align: center;color: #333;border-radius: 0.15625rem;border:0.03125rem solid #d2d1d1;}
 .join_collec>a.need{display: block;}
 .tv{width: 1.71875rem;height: 1.71875rem;margin-left: 0.9375rem;background: url(../image/change_manhua.png) no-repeat center center;background-size: 100% auto;}
