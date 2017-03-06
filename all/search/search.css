@@ -36,3 +36,11 @@
 .book-praise{font-size: 0.40625rem;margin-bottom: .125rem;color: #999;padding-left: .78125rem;background: url(../colorComic/image/icon_read_praise.png) no-repeat left center;background-size: .5625rem auto;}
 .book-flag{font-size: 0.40625rem;margin-bottom: .125rem;color: #999;padding-left: .78125rem;background: url(../colorComic/image/icon_read_tag.png) no-repeat left center;background-size: .5625rem auto;}
 .book-updateTime{position: absolute;margin-left:35%;bottom: -0.03125rem;margin-bottom: .21875rem;font-size: .4375rem;padding-left: .78125rem;line-height: .75rem;background: url(../colorComic/image/icon_update_time.jpg) no-repeat left center;color: #e13511;background-size:.625rem .625rem ;}
+.no-reason{color: #999;padding: 1.875rem 0.3125rem 0.78125rem 0.3125rem;text-align: center;background: url(../colorComic/image/icon_search_none.png) no-repeat center 0.625rem;background-size: 1.25rem auto;display: none;}
+
+
+
+
+
+
+
