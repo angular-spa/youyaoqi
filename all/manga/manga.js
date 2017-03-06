@@ -56,9 +56,9 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 		}
 	});
 	//分享
-	$(".mgHeader-share").on("touchstart",function(){
+	$(".mgHeader-share").on("click",function(){
 		$(".cover").show();
-		$(".cover").on("touchstart",function(){
+		$(".cover").on("click",function(){
 			$(".cover").hide();
 		});
 	});

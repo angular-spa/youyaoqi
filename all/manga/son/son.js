@@ -184,9 +184,9 @@ angular.module('sonModule',['ui.router','angularCSS'])
 		}
 	});
 	//分享
-	$(".sonHeader-share").on("touchstart",function(){
+	$(".sonHeader-share").on("click",function(){
 		$(".cover").show();
-		$(".cover").on("touchstart",function(){
+		$(".cover").on("click",function(){
 			$(".cover").hide();
 		});
 	});
