@@ -13,7 +13,7 @@ angular.module('searchModule',['ui.router','angularCSS'])
 		return $http.get(url);
 	}
 }])
-.controller('searchCtrl',['$scope','searchData',function($scope,searchData){
+.controller('searchCtrl',['$scope','searchData','$compile',function($scope,searchData,$compile){
 	searchData.get("http://m.u17.com/fav/recommend?num=7").success(function(res){
 		$scope.recommendList = res;
 	})
@@ -86,63 +86,76 @@ angular.module('searchModule',['ui.router','angularCSS'])
 		}
 	}
 	$scope.searchComic=function(event){
+		$(".search_post_list").empty();
 		var k = $scope.keywords;
 		var p = 1;
-		$(".comic_sort").css("display","none");
-		$(".reco_list").css("display","none");
-		$(".search_post_list").css("display","block");
-		if(k!=""){
+		if(k!=""&&k!=undefined){
+			$(".comic_sort").css("display","none");
+			$(".reco_list").css("display","none");
 			$.post("http://m.u17.com/search/comic/",{key:k,page:p},function(res){
 				var groupArr = ['少年','少女'];
 				var tagArr = $scope.tagArr = ['搞笑','魔幻','生活','恋爱','动作','科幻','战争','体育','推理','','恐怖','同人'];
 				var searchList = JSON.parse(res).comics;
-				console.log(searchList);
-				console.log(searchList);
-				for(var i=0;i<searchList.length;i++){
-					var liEle = $("<li></li>");
-					var aEle = $('<a ui-sref="comicDetail" ng-click="goDetail(obj.comicId)"></a>')
-					var boxEle = $('<div class="search_detail_box"></div>');
-					if(searchList[i].seriesStatus==1){
-						boxEle.addClass("typeFour");
-					}else{
-						if(searchList[i].accredit==0||searchList[i].accredit==1){
-							boxEle.addClass("typeOne");
-						}else if(searchList[i].accredit==0){
-							boxEle.addClass("typeTwo");
+				if(searchList.length!=0){
+					$(".search_post_list").css("display","block");
+					$(".no-reason").css("display","none");
+					for(var i=0;i<searchList.length;i++){
+						var liEle = $("<li></li>");
+						var aEle = $('<a ui-sref="comicDetail" ng-click="goDetail('+searchList[i].comicId+')"></a>')
+						var boxEle = $('<div class="search_detail_box"></div>');
+						if(searchList[i].seriesStatus==1){
+							boxEle.addClass("typeFour");
 						}else{
-							boxEle.addClass("typeThree");
+							if(searchList[i].accredit==0||searchList[i].accredit==1){
+								boxEle.addClass("typeOne");
+							}else if(searchList[i].accredit==0){
+								boxEle.addClass("typeTwo");
+							}else{
+								boxEle.addClass("typeThree");
+							}
 						}
-					}
-					var imgEle = $('<div class="detail_img" style="background-image: url('+searchList[i].cover+');"></div>');
-					var msgEle = $('<div class="detail_msg"></div>');
-					var nameEle = $('<span class="book_name">'+searchList[i].name+'</span>');
-					var authorEle = $('<span class="book_author">'+searchList[i].authorName+'</span>');
-					var praiseEle = $('<span class="book-praise" >'+((searchList[i].comicExtra.clickTotal)/10000).toFixed(1)+'万</span>')
-					var theme = searchList[i].themeIds;
-					var the = theme.split(",");
-					var str="";
-					for(var j=0;j<the.length;j++){
-						if(i<the.length-1&&the[i]!=10){
-							str = str+$scope.tagArr[the[i]-1]+"/";
-						}else{
-							str = str+$scope.tagArr[the[i]-1];
+						var imgEle = $('<div class="detail_img" style="background-image: url('+searchList[i].cover+');"></div>');
+						var msgEle = $('<div class="detail_msg"></div>');
+						var nameEle = $('<span class="book_name">'+searchList[i].name+'</span>');
+						var authorEle = $('<span class="book_author">'+searchList[i].authorName+'</span>');
+						var praiseEle = $('<span class="book-praise" >'+((searchList[i].comicExtra.clickTotal)/10000).toFixed(1)+'万</span>')
+						var theme = searchList[i].themeIds;
+						var the = theme.split(",");
+						var str="";
+						for(var j=0;j<the.length;j++){
+							if(i<the.length-1&&the[i]!=10){
+								str = str+$scope.tagArr[the[i]-1]+"/";
+							}else{
+								str = str+$scope.tagArr[the[i]-1];
+							}
 						}
+						if(str[str.length-1]=="/"){
+							str = str.substring(0,str.length-1);
+						}
+						var flag = $('<span class="book-flag">'+str+'</span>');
+						var timeDate = new Date(searchList[i].lastUpdateTime*1000).toLocaleDateString();
+						var timeDate = timeDate.replace(/\//g,'-');
+						var time = $('<span class="book-updateTime">'+timeDate+'</span>');
+						msgEle.append(nameEle).append(authorEle).append(praiseEle).append(flag).append(time);
+						boxEle.append(imgEle).append(msgEle);
+						aEle.append(boxEle);
+						liEle.append(aEle);
+						$compile(liEle)($scope);
+						$('.search_post_list').append(liEle);
 					}
-					if(str[str.length-1]=="/"){
-						str = str.substring(0,str.length-1);
-					}
-					var flag = $('<span class="book-flag">'+str+'</span>');
-					var timeDate = new Date(searchList[i].lastUpdateTime*1000).toLocaleDateString();
-					var timeDate = timeDate.replace(/\//g,'-');
-					var time = $('<span class="book-updateTime">'+timeDate+'</span>');
-					msgEle.append(nameEle).append(authorEle).append(praiseEle).append(flag).append(time);
-					boxEle.append(imgEle).append(msgEle);
-					aEle.append(boxEle);
-					liEle.append(aEle);
-					$('.search_post_list').append(liEle);
+				}else{
+					$(".no-reason").css("display","block");
+					$(".search_post_list").css("display","none");
 				}
 			})
+		}else{
+			alert("请输入搜索内容");
 		}
-		
+	}
+	
+//	点击进入详情页面
+	$scope.goDetail=function(id){
+		sessionStorage.setItem("id", id);
+		sessionStorage.getItem('flag',"false");
 	}
 }])			
