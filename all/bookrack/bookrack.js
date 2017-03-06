@@ -13,9 +13,9 @@ angular.module('bookrackModule',['ui.router','collectionModule','readModule'])
 	$scope.selflag = true;
 	
 	//默认打开收藏
+	
 	if(sessionStorage.getItem('whitchFlag2')){
 		var whitchFlag2 = sessionStorage.getItem('whitchFlag2');
-		console.log(whitchFlag2);
 		if(whitchFlag2=='collection'){
 			$scope.curflag = 1;
 		}else{
@@ -90,12 +90,12 @@ angular.module('bookrackModule',['ui.router','collectionModule','readModule'])
 	
 	//返回前一页功能
 	$scope.returnLastPage = function(){
+		sessionStorage.setItem('whitchFlag2','');
 		var path = decodeURI(location.pathname);
 		var origin = location.origin;
 //		history.back();
 		if(sessionStorage.getItem('whitchFlag')){
 			var whitchFlag = sessionStorage.getItem('whitchFlag');
-			console.log(whitchFlag);
 			if(whitchFlag=='user'){
 				location.href = origin+path+'#/user';
 			}else{

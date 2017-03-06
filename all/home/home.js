@@ -30,14 +30,12 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 	/*登录flag*/
 	$scope.loginflag = 'false';
 	$scope.getLogin = function(){
-		console.log("进来了");
 		if(sessionStorage.getItem('loginflag')){
 			$scope.loginflag = sessionStorage.getItem('loginflag');
 		}
 	}
 	//每次进来确定是否已经登录
 	$scope.getLogin();
-			console.log(typeof $scope.loginflag);
 	
 	//判断从哪个按钮点进登录界面的(user,bookrank)登录界面点击登录按钮时会将此值赋给ui-sref
 	$scope.flagToWhitch = function(str){
@@ -46,7 +44,6 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 	
 	/*轮播图*/
 	homeData.get('http://m.u17.com/banner/recommend',function(data){
-		console.log(data);
 		for(var i=0;i<data.length;i++){
 			var img = data[i].img;
 			var word = data[i].word;
@@ -129,7 +126,6 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 						if(j >= data.length-1){
 							j=0;
 							page++;
-							console.log(page);
 							ajaxflag = true;
 						}
 					}

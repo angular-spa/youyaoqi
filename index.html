@@ -11,6 +11,22 @@
 </head>
 <body>
 	<div id="view" ui-view></div>
+	<div ng-controller="indexCtrl">
+		<div id="pop_tools_btn" ng-click="allBtnShow()"></div>
+		<div id="pop_tools_content" ng-click="noShow()">
+			<div class="pop-tools-box">
+				<a href="" ui-sref='home' class="pl-home" title="首页"></a>
+				<a href="" ui-sref='update' class="pl-update" title="更新"></a>
+				<a href="" ui-sref='rank' class="pl-ranking" title="排行"></a>
+				<a href="" ui-sref='colorComic' class="pl-caiman" title="彩漫"></a>
+				<a href="" ui-sref='manga' class="pl-dongman" title="动漫"></a>
+				<a href="" class="pl-shelf" title="书架"></a>
+				<a href="" ui-sref='search' class="pl-search" title="搜索"></a>
+				<a href="" ui-sref='login' ng-click="flagToWhitch('user')" class="pl-nologin" ng-class="{'zon':loginflag=='false'}" title="未登录"></a>
+				<a href="" ui-sref='user' class="pl-islogin" ng-class="{'zon':loginflag=='true'}" title="已登录"></a>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/angular.min.js" type="text/javascript" charset="utf-8"></script>

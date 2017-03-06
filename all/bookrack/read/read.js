@@ -77,11 +77,9 @@ angular.module('readModule',['ui.router'])
 				var lastUpdateTime = recently[i].lastUpdateTime;
 				var tagName = groupArr[groupIds-1]+'/'+tag(themeIds);
 				var ldateTime = getUpdateTime(lastUpdateTime);
-				console.log(tagName);
 				if(seriesStatus==1){
 					img = 'all/colorComic/image/status_finish.png';
 				}else{
-					console.log(accredit);
 					if(accredit==0||accredit==1){
 						img = 'all/colorComic/image/status_one.png';
 					}else if(accredit==2){

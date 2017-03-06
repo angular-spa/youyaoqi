@@ -1,3 +1,20 @@
 @charset "utf-8";
 #view{width: 100%;height: 100%;overflow: hidden;position: relative;}
 body{background-color: #f0ebf1;}
+#pop_tools_btn{position: fixed;right: 0;top: 60%;width: 1.25rem;height: 1.2777778rem;background: url(img/pop_tools.png) no-repeat left center;background-size: 100% 100%;z-index: 998;}
+#pop_tools_content{left: -300%;position: fixed;top: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(0,0,0,0.5);}
+#pop_tools_content.show{left: 0;}
+.pop-tools-box{position: absolute;top: 50%;left: 50%;width: 8.3333333rem;height: 8.3333333rem;background: url(img/pop_tools_bg.png) no-repeat center center;background-size: 100% auto;z-index: 2;margin: -4.1666667rem 0 0 -4.1666667rem;transform: scale(1.152);}
+.pop-tools-box>a{width: 2.0277778rem;height: 2.0277778rem;border-radius: 50%;position: absolute;background: url(img/icon_tools.png) no-repeat;background-size: 100% auto;transform: scale(0);}
+.pop-tools-box>a.pl-home{background-position: 0 0;left: 2.8rem;top: 0.4rem;transition: all 0.2s 80ms;}
+.pop-tools-box>a.pl-update{background-position: 0 -2.3rem;left: 5rem;top: 1.4166667rem;transition: all 0.2s 0.16s;}
+.pop-tools-box>a.pl-ranking{background-position: 0 -13.3rem;left: 5.9722222rem;top: 3.3333333rem;transition: all 0.2s 0.24s;}
+.pop-tools-box>a.pl-caiman{background-position: 0 -8.8rem;left: 4.7222222rem;top: 5.4722222rem;transition: all 0.2s 0.32s;}
+.pop-tools-box>a.pl-dongman{background-position: 0 -11.1rem;left: 2.3055556rem;top: 5.8333333rem;transition: all 0.2s 0.4s;}
+.pop-tools-box>a.pl-shelf{background-position: 0 -6.7rem;left: 0.5833333rem;top: 4.1944444rem;transition: all 0.2s 0.48s;}
+.pop-tools-box>a.pl-search{background-position: 0 -4.5rem;left: 0.7222222rem;top: 1.8055556rem;transition: all 0.2s 0.56s;}
+.pop-tools-box>a.pl-nologin{transition: all 0.2s 0.71s;width: 2.3333333rem;height: 2.3333333rem;background: url(img/icon_tools_unlogin.png) no-repeat center center #fff;background-size: 100% 100%;left: 3rem;top: 3rem;}
+.pop-tools-box>a.pl-islogin{transition: all 0.2s 0.71s;width: 2.3333333rem;height: 2.3333333rem;left: 3rem;top: 3rem;background: url(img/default.big.gif) no-repeat center center;background-size: 100% auto;}
+.pop-tools-box.btnshow>a{transform: scale(1);}
+.zon{z-index: 3;}
+.pop-tools-box.traisitionno>a{transition: none;}

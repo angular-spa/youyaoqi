@@ -15,7 +15,6 @@ angular.module('userModule',['ui.router'])
 	function getUserName(){
 		if(sessionStorage.getItem('currentUser')){
 			var userObj = JSON.parse(sessionStorage.getItem('currentUser'));
-			console.log(userObj);
 			$scope.userName = userObj.userName;
 		}
 	}
