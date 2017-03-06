@@ -23,7 +23,6 @@ angular.module('loginModule',['ui.router','registerModule'])
 			var localArr = JSON.parse(localStorage.getItem('user'));
 			for(var i=0;i<localArr.length;i++){
 				if(userName == localArr[i].userName && psd == localArr[i].psd){
-					console.log("登陆成功");
 					sessionStorage.setItem('loginflag',true);
 					sessionStorage.setItem('currentUser',JSON.stringify(localArr[i]));
 					url_ = sessionStorage.getItem('whitchFlag');

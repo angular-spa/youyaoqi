@@ -13,8 +13,8 @@
 	<div class="search_main">
 		<div class="search_scroll">
 			<div class="search_input">
-				<input type="text" class="search_content"/>
-				<div class="search_btn">搜索</div>
+				<input type="text" class="search_content" ng-model="keywords"/>
+				<div class="search_btn" ng-click="searchComic($event)">搜索</div>
 			</div>
 			
 			<!--分类列表-->
@@ -55,6 +55,9 @@
 					</li>
 				</ul>
 			</div>
+			
+			<!--搜索列表-->
+			<ul class="search_post_list"></ul>
 		</div>
 	</div>
 </div>
