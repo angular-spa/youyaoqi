@@ -67,7 +67,7 @@ var num = 0
 $("#upContent").on("scroll",function(){
 	//滚动画线
 	$(".leftline").css("height",5.2*count + "rem")
-	var top = 600 + $("#upContent").scrollTop() -10 + "px";
+	var top = 600 + $("#upContent").scrollTop() -20 + "px";
 	$(".leftline").css("height",top)
 	for (var i = 5 ; i <= 10 ; i ++) {
 		var top = 0;
@@ -77,13 +77,10 @@ $("#upContent").on("scroll",function(){
 	if ($("#upContent").scrollTop() >= 240 && $("#upContent").scrollTop()<=250) {
 		num++;
 		if (num==1) {
-//			$(".bg").remove();
-//			linee(arrAll)
 			page=15;
 			mgList (page);
 		}
 	}
-//	console.log($("#upContent").scrollTop());
 });
 
 
