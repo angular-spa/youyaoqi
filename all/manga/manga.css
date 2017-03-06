@@ -8,7 +8,7 @@
 #mgScrollView>div>a>div{width: 96%;height: 4.8rem;border: 5px solid #fff;display: block;border-radius: 8px;margin: 0 auto;background-repeat: no-repeat;background-position: center center;background-size: 100% 100%;}
 #mgScrollView>div>a{position: relative;}
 #mgScrollView>div>a>span{display: inline-block;position: absolute;bottom: 0.3rem;left:0.4rem;color: white;font-size: 0.427rem;}
-.topList{z-index:20;width: 100%;background: #596D37;border: 2px solid #99cb4b;margin-top: 0.2rem;display: none;}
+.topList{z-index:20;width: 100%;overflow: auto; background: #596D37;border: 2px solid #99cb4b;margin-top: 0.2rem;display: none;}
 .topList>a>li{width: 100%;height: 1.28rem;color: white;line-height: 1.28rem;padding: 0 0.267rem;display: flex;justify-content: space-between;}
 .topList>a>li>span:last-child{display: inline-block;width: 3rem;text-align: center;overflow: hidden;}
 .sonHeaderList{position: absolute;right: 0.7rem;top: 0rem;width: 1.333rem;height: 1.386rem;background-repeat: no-repeat;background-position: center center;background-size: auto 1.386rem;}

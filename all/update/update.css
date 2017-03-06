@@ -16,5 +16,4 @@
 .clearfix:after{content: ".";clear: both;display: block;height: 0;visibility: hidden;}
 .line1{position: relative;}
 .line1>b{display: inline-block;width: 0.32rem;height: 0.32rem;border: 2px solid #ff8737;border-radius: 50%;position: absolute;top: 0;left: 0.9rem;background: white;z-index: 333;}
-.line1>b:nth-of-type(1){margin-top: 4rem;}
 .line>i{display: inline-block;width: 0.48rem;height: 0.48rem;background-image: url(../manga/img/icon_list_time.png);background-repeat: no-repeat;background-size: 100% 100%;position: absolute;left: 0.8rem;z-index: 333;}

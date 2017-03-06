@@ -81,20 +81,12 @@ angular.module('rankModule',['ui.router','angularCSS'])
 	var num = 0;
 	var num1 = 0;
 	$("#rankContent").on("scroll",function(){
-//		console.log($(this).scrollTop())
+//		console.log($(this).scrollTop());
+//		console.log(this.scrollHeight+"a");
 		var top = $(this).scrollTop();
-		if (top >= 1600 && top <= 1650) {
-			num++;
-			if (num==1) {
-				page = 30;	
+		if (this.scrollHeight<=top+641) {
+				page += 15;	
 				rankList(page);
-			}
-		}else if (top >= 4100 && top <= 4150) {
-			num1++;
-			if (num1==1) {
-				page = 45;	
-				rankList(page);
-			}
 		}
 	});
 }])
