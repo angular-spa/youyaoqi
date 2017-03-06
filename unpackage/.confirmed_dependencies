@@ -25,7 +25,13 @@
 			"all/bookrack/collection/collection.js",
 			"lib/infinite-scroll.js",
 			"all/search/list/list.js",
-			"all/search/search.js"
+			"all/search/search.js",
+			"img/icon_tools_unlogin.png",
+			"img/icon_tools.png",
+			"all/bookrack/read/read.js",
+			"img/default.big.gif",
+			"img/pop_tools.png",
+			"img/pop_tools_bg.png"
 		]
 	}
 }
