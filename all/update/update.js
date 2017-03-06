@@ -25,7 +25,7 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 			}
 			$scope.arrList = arrAll;
 			$scope.listClick = function (i) {
-				var id = data[i].comicId;
+				var id = arrAll[i].comicId;
 				sessionStorage.setItem("id",id);
 				sessionStorage.setItem("flag","false");
 			}
@@ -51,10 +51,9 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 		for (var k = 0 ; k <= count ; k ++) {
 			var bg = $("<b class='bg'></b>");
 			$(".line1").append(bg);
-			top = 4.2*k+"rem"
+			top = 4.3*k+"rem"
 			$(".bg").eq(k).css("margin-top",top)
 			$(".bg").eq(0).css("display","none")
-			$(".bg").eq(11).css("display","none")
 		}
 		//画线
 //		console.log(top)
@@ -66,19 +65,29 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 var num = 0
 $("#upContent").on("scroll",function(){
 	//滚动画线
-	$(".leftline").css("height",5.2*count + "rem")
+	var height = this.scrollHeight;
 	var top = 600 + $("#upContent").scrollTop() -20 + "px";
-	$(".leftline").css("height",top)
-	for (var i = 5 ; i <= 10 ; i ++) {
-		var top = 0;
-		top = 4.2*i+"rem"
-		$(".bg").eq(i).css("margin-top",top);
-	}
-	if ($("#upContent").scrollTop() >= 240 && $("#upContent").scrollTop()<=250) {
-		num++;
-		if (num==1) {
-			page=15;
-			mgList (page);
+	$(".leftline").css("height",height-100)
+	
+	var top = $(this).scrollTop();
+//	console.log(this.scrollHeight+"a");
+	if (this.scrollHeight <= top + 640) {
+		page += 15;
+		mgList (page);
+	}else {
+		for (var i = 5 ; i <=(height/183)+1 ; i ++) {
+
+			var top = 0;
+			top = 4.3*i+"rem"
+			$(".bg").eq(i).css("margin-top",top);
+			if (i > 18) {
+				for (var i = 18 ; i <=(height/183)+3 ; i ++) {
+					var top = 0;
+					top = 4.3*i+"rem"
+					$(".bg").eq(i).css("margin-top",top);
+				}
+				
+			}
 		}
 	}
 });
