@@ -19,7 +19,6 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 	var arrAll = [];
 	function mgList (page) {
 		updateData.get('http://m.u17.com/update/list/0?page='+page+'&pageSize=15',function(data){
-			console.log(data);
 			for (j in data) {
 				arrAll.push(data[j]);
 			}

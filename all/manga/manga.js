@@ -22,7 +22,6 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 	var arrId = [10,9,1,5,8,2,3,4,6];
 	mangaData1.get().success(function(data){
 		$scope.arrImgs = data;
-		console.log($scope.arrImgs);
 		$scope.mgClick = function (i){
 			var arrUrlId = [];
 			arrUrlId.push(arrId[i]);

@@ -20,7 +20,6 @@ angular.module('rankModule',['ui.router','angularCSS'])
 	rankList(page);
 	function rankList (page) {
 		rankData.get('http://m.u17.com/rank/list?page='+(page-15)+'&size=20',function(data){
-			console.log(data)
 			$scope.arrSpan = ["1","2","3"];
 			var arrC = [];
 			//漫画类型
