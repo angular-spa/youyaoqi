@@ -1,16 +1,1 @@
-<ul class="book-list" id="collection-list">
-	<a href="" ng-repeat="obj in recently" ui-sref="comicDetail" ng-click="toComic(obj.comicId)" comicId="{{obj.comicId}}">
-		<li class="clearfloat">
-			<div class="book-detial-box" style="background-image: url({{img}});">
-				<div class="imgCollection" style="background-image: url({{obj.cover}});"></div>
-				<div class="detial-box">
-					<span class="book-name">{{obj.name}}</span>
-					<span class="book-info book-author">{{obj.authorName}}</span>
-					<span class="book-info book-praise">2031041万</span>
-					<span class="book-info book-tag">{{groupArr[obj.groupIds-1]}}/{{tag(obj.themeIds)}}</span>
-					<span class="book-updateTime">{{getUpdateTime(obj.lastUpdateTime)}}</span>
-				</div>
-			</div>
-		</li>
-	</a>
-</ul>
+<ul class="book-list" id="collection-list"></ul>

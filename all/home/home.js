@@ -12,8 +12,9 @@ angular.module('homeModule',['ui.router','angularCSS','mangaModule','colorModule
 .service('swiper',[function(){
 	this.start = function(){
 		new Swiper ('.swiper-container', {
-		   loop: true,
-		    autoplay:4000
+		    loop: true,
+	    	autoplay:4000,
+	    	autoplayDisableOnInteraction:false
 		 })
 	}
 

@@ -25,11 +25,7 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 	colorData.get('http://m.u17.com/color/list?page='+$scope.colorPage+'&size=15').success(function(res){
 		$scope.colorList = res;
 		$scope.groupArr = ['少年','少女'];
-<<<<<<< HEAD
 		$scope.tagArr = ['搞笑','魔幻','生活','恋爱','动作','科幻','战争','体育','推理','','恐怖','同人'];
-=======
-		$scope.tagArr = $scope.tagArr = ['搞笑','魔幻','生活','恋爱','动作','科幻','战争','体育','推理','','恐怖','同人'];
->>>>>>> 8852145b9ee804a136f62ecea99dc39ca9a2bf99
 		$scope.tag = function(theme){
 			var the = theme.split(",");
 			var str="";
