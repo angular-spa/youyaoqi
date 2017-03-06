@@ -2,7 +2,7 @@
 	<!--用户头部-->
 	<div class="wrap_header">
 		<div class="user_top_bar">
-			<a ng-click="returnLastPage()" class="return_home"></a>
+			<a ui-sref='home' class="return_home"></a>
 			<div class="user_title">个人中心</div>
 			<div class="user_header_img"></div>
 		</div>
@@ -24,7 +24,7 @@
 			<div class="center-pay-box"><a href="" class="pay-btn">充值妖气币</a><a href="" class="vip-btn">成为VIP</a></div>
 		</div>
 		<div class="vip-section-box">
-			<a href="" class="center-link bookrack" ui-sref='bookrack'><span class="icon"></span>我的书架</a>
+			<a href="" class="center-link bookrack" ui-sref='bookrack' ng-click="flagToWhitch('user')"><span class="icon"></span>我的书架</a>
 			<a href="" class="center-link record"><span class="icon"></span>消费记录</a>
 			<a href="" class="center-link contactus border-none"><span class="icon"></span>联系我们</a>
 		</div>

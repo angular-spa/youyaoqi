@@ -4,8 +4,8 @@
 		<div class="bookrack_top_bar">
 			<a ng-click="returnLastPage()" class="return_home"></a>
 			<div class="bookrack_title">书架</div>
-			<div class="bookrack_header_img" ng-class="{'show':delShowSlag}" ng-click="delShow()"></div>
-			<div class="del-choose" ng-class="{'show':!delShowSlag}">
+			<div class="bookrack_header_img show" ng-click="delShow()"></div>
+			<div class="del-choose">
 				<span id='select-all' ng-click="selectAndCancel(selflag,$event)">全选</span>
 				<span id="del" ng-click="del()">删除</span>
 				<span id="return" ng-click="delShow()">返回</span>
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div id="scrollView">
-		<nav class="bookrack-top-nav"><a href="" ng-click="changePage(1)" ng-class="{'cur':curflag==1}">我的收藏</a><a href="" ng-click="changePage(2)" ng-class="{'cur':curflag==2}">最近阅读</a></nav>
+		<nav class="bookrack-top-nav"><a href="" ui-sref='bookrack.collection' ng-click="curflag=1" ng-class="{'cur':curflag==1}">我的收藏</a><a href="" ng-click="curflag=2" ui-sref='bookrack.read' ng-class="{'cur':curflag==2}">最近阅读</a></nav>
 		<div ui-view id="bookrackview"></div>
 	</div>
 </div>

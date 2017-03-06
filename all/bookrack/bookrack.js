@@ -9,17 +9,35 @@ angular.module('bookrackModule',['ui.router','collectionModule','readModule'])
 	})
 })
 .controller('bookrackCtrl',['$scope','$state',function($scope,$state){
+	$scope.curflag = 1;
 	$scope.selflag = true;
 	
 	//默认打开收藏
-//	$state.go('bookrack.collection');
-	var path = decodeURI(location.pathname);
-	var origin = location.origin
-	location.href = origin+path+'#/bookrack/collection';
-	$scope.curflag = 1;
-	$scope.delShowSlag = true;
+	if(sessionStorage.getItem('whitchFlag2')){
+		var whitchFlag2 = sessionStorage.getItem('whitchFlag2');
+		console.log(whitchFlag2);
+		if(whitchFlag2=='collection'){
+			$scope.curflag = 1;
+		}else{
+			$scope.curflag = 2;
+		}
+		$state.go('bookrack.'+whitchFlag2);
+	}else{
+		$state.go('bookrack.collection');
+	}
+	
+	
 	$scope.delShow = function(){
-		$scope.delShowSlag = !$scope.delShowSlag;
+		if($('.bookrack_header_img').hasClass('show')){
+			$('.bookrack_header_img').removeClass('show');
+		}else{
+			$('.bookrack_header_img').addClass('show');
+		}
+		if($('.del-choose').hasClass('show')){
+			$('.del-choose').removeClass('show');
+		}else{
+			$('.del-choose').addClass('show');
+		}
 		if($('.book-list').hasClass('aniShow')){
 			$('.book-list').removeClass('aniShow');
 		}else{
@@ -72,19 +90,30 @@ angular.module('bookrackModule',['ui.router','collectionModule','readModule'])
 	
 	//返回前一页功能
 	$scope.returnLastPage = function(){
-		history.go(-1);
-	}
-	
-	
-	//二级路由切换页面replace
-	$scope.changePage = function(num){
 		var path = decodeURI(location.pathname);
 		var origin = location.origin;
-		$scope.curflag = num;
-		if(num==1){
-			location.replace(origin+path+'#/bookrack/collection');
-		}else{
-			location.replace(origin+path+'#/bookrack/read');
+//		history.back();
+		if(sessionStorage.getItem('whitchFlag')){
+			var whitchFlag = sessionStorage.getItem('whitchFlag');
+			console.log(whitchFlag);
+			if(whitchFlag=='user'){
+				location.href = origin+path+'#/user';
+			}else{
+				location.href = origin+path+'#/home';
+			}
 		}
 	}
+	
+	
+//	//二级路由切换页面replace
+//	$scope.changePage = function(num){
+//		var path = decodeURI(location.pathname);
+//		var origin = location.origin;
+//		$scope.curflag = num;
+//		if(num==1){
+//			location.replace(origin+path+'#/bookrack/collection');
+//		}else{
+//			location.replace(origin+path+'#/bookrack/read');
+//		}
+//	}
 }])

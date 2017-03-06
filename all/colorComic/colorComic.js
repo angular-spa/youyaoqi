@@ -26,12 +26,12 @@ angular.module('colorModule',['ui.router','angularCSS','comicModule'])
 		$scope.colorList = res;
 		console.log(res);
 		$scope.groupArr = ['少年','少女'];
-		$scope.tagArr = ['搞笑','魔幻','生活','','动作','科幻','','体育','','恋爱','恐怖','同人'];
+		$scope.tagArr = ['搞笑','魔幻','生活','恋爱','动作','科幻','战争','体育','推理','','恐怖','同人'];
 		$scope.tag = function(theme){
 			var the = theme.split(",");
 			var str="";
 			for(var i=0;i<the.length;i++){
-				if(i<the.length-1){
+				if(i<the.length-1&&the[i]!=10){
 					str = str+$scope.tagArr[the[i]-1]+"/";
 				}else{
 					str = str+$scope.tagArr[the[i]-1];

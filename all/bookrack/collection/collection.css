@@ -1,4 +1,4 @@
-.book-list{;position: relative;left: -1.3888889rem;transition: all 0.15s ease-out;}
+.book-list{position: relative;left: -1.3888889rem;transition: all 0.15s ease-out;font-size: 0;}
 .book-list>li{height: 3.4722222rem;margin-bottom: 0.1388889rem;white-space: nowrap;}
 .book-list>li>div{display: inline-block;height: 100%;}
 .book-del-box{width: 1.3888889rem;height: 100%;display: -webkit-box;-webkit-box-pack: center;-webkit-box-align: center;}
@@ -12,6 +12,6 @@
 .detial-box{margin-left: 0.2777778rem;width: 3.6111111rem;}
 .detial-box>span{height: 0.5rem;line-height: 0.5rem;display: block;overflow: hidden;}
 .readmore{margin-top: 2.0833333rem;width: 2.2222222rem;height: 0.8888889rem;border-radius: 0.4444444rem;background-color: #ffb400;line-height: 0.8888889rem;text-align: center;color: #fff;font-size: 0.4166667rem;}
-.book-name{margin: 0.0555556rem 0 0.1666667rem;}
+.book-name{margin: 0.0555556rem 0 0.1666667rem;font-size: 0.4444444rem;}
 .book-info{font-size: 0.4166667rem;color: #999;margin-bottom: 0.2777778rem;}
 .detial-box>span.book-updateTime{margin-bottom: 0.1944444rem;font-size: 0.3888889rem;line-height: 0.5555556rem;padding-left: 0.6944444rem;color: #e13511;background: url(../../colorComic/image/icon_update_time.jpg) no-repeat left center;background-size: 0.5555556rem 0.5555556rem;}
