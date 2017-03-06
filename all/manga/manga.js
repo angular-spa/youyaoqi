@@ -32,7 +32,7 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 });
 //头部
 	var topNum = 0;
-	$(".sonHeaderList").on("touchstart",function(){
+	$(".sonHeaderList").on("click",function(){
 		mangaData2.get('all/manga/data/data2.json',function(data){
 			console.log(data);
 			$scope.arrTopList = data;
