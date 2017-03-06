@@ -25,7 +25,7 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 			}
 			$scope.arrList = arrAll;
 			$scope.listClick = function (i) {
-				var id = data[i].comicId;
+				var id = arrAll[i].comicId;
 				sessionStorage.setItem("id",id);
 				sessionStorage.setItem("flag","false");
 			}
@@ -37,51 +37,59 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 	}
 //	console.log(data)
 	//得到排数
-
+	var count;
+	var height;
 	function linee (data) {
-		var count;
 		if (data.length%3 == 0) {
 			count = data.length/3;
-			console.log(count);
+//			console.log(count);
 		}else if (data.length%3 != 0) {
 			count = data.length/3+1;
-			console.log(count);
+//			console.log(count);
 		}
+			var top = 0;
 		for (var k = 0 ; k <= count ; k ++) {
 			var bg = $("<b class='bg'></b>");
 			$(".line1").append(bg);
-			var top = 0;
-			top = 4.2*k+"rem"
+			top = 4.3*k+"rem"
 			$(".bg").eq(k).css("margin-top",top)
 			$(".bg").eq(0).css("display","none")
-			$(".bg").eq(11).css("display","none")
 		}
 		//画线
+//		console.log(top)
+		height = 5.2*count + "rem"
 		var lineJq = $("<div class='leftline'></div>");
 		$(".line").append(lineJq);
-		$(".leftline").css("height","660px")
+		$(".leftline").css("height",height)
 	}
 var num = 0
 $("#upContent").on("scroll",function(){
 	//滚动画线
-	$(".leftline").css("height","660px")
-	var top = 600 + $("#upContent").scrollTop() -10 + "px";
-	$(".leftline").css("height",top)
-	for (var i = 5 ; i <= 10 ; i ++) {
-		var top = 0;
-		top = 4.2*i+"rem"
-		$(".bg").eq(i).css("margin-top",top);
-	}
-	if ($("#upContent").scrollTop() >= 240 && $("#upContent").scrollTop()<=250) {
-		num++;
-		if (num==1) {
-//			$(".bg").remove();
-//			linee(arrAll)
-			page=15;
-			mgList (page);
+	var height = this.scrollHeight;
+	var top = 600 + $("#upContent").scrollTop() -20 + "px";
+	$(".leftline").css("height",height-100)
+	
+	var top = $(this).scrollTop();
+//	console.log(this.scrollHeight+"a");
+	if (this.scrollHeight <= top + 640) {
+		page += 15;
+		mgList (page);
+	}else {
+		for (var i = 5 ; i <=(height/183)+1 ; i ++) {
+
+			var top = 0;
+			top = 4.3*i+"rem"
+			$(".bg").eq(i).css("margin-top",top);
+			if (i > 18) {
+				for (var i = 18 ; i <=(height/183)+3 ; i ++) {
+					var top = 0;
+					top = 4.3*i+"rem"
+					$(".bg").eq(i).css("margin-top",top);
+				}
+				
+			}
 		}
 	}
-//	console.log($("#upContent").scrollTop());
 });
 
 

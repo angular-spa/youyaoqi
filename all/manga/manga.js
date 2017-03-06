@@ -32,7 +32,7 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 });
 //头部
 	var topNum = 0;
-	$(".sonHeaderList").on("touchstart",function(){
+	$(".sonHeaderList").on("click",function(){
 		mangaData2.get('all/manga/data/data2.json',function(data){
 			console.log(data);
 			$scope.arrTopList = data;
@@ -56,9 +56,9 @@ angular.module('mangaModule',['ui.router','angularCSS','sonModule'])
 		}
 	});
 	//分享
-	$(".mgHeader-share").on("touchstart",function(){
+	$(".mgHeader-share").on("click",function(){
 		$(".cover").show();
-		$(".cover").on("touchstart",function(){
+		$(".cover").on("click",function(){
 			$(".cover").hide();
 		});
 	});
