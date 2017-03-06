@@ -37,34 +37,36 @@ angular.module('upDateModule',['ui.router','angularCSS'])
 	}
 //	console.log(data)
 	//得到排数
-
+	var count;
+	var height;
 	function linee (data) {
-		var count;
 		if (data.length%3 == 0) {
 			count = data.length/3;
-			console.log(count);
+//			console.log(count);
 		}else if (data.length%3 != 0) {
 			count = data.length/3+1;
-			console.log(count);
+//			console.log(count);
 		}
+			var top = 0;
 		for (var k = 0 ; k <= count ; k ++) {
 			var bg = $("<b class='bg'></b>");
 			$(".line1").append(bg);
-			var top = 0;
 			top = 4.2*k+"rem"
 			$(".bg").eq(k).css("margin-top",top)
 			$(".bg").eq(0).css("display","none")
 			$(".bg").eq(11).css("display","none")
 		}
 		//画线
+//		console.log(top)
+		height = 5.2*count + "rem"
 		var lineJq = $("<div class='leftline'></div>");
 		$(".line").append(lineJq);
-		$(".leftline").css("height","660px")
+		$(".leftline").css("height",height)
 	}
 var num = 0
 $("#upContent").on("scroll",function(){
 	//滚动画线
-	$(".leftline").css("height","660px")
+	$(".leftline").css("height",5.2*count + "rem")
 	var top = 600 + $("#upContent").scrollTop() -10 + "px";
 	$(".leftline").css("height",top)
 	for (var i = 5 ; i <= 10 ; i ++) {

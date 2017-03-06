@@ -1,0 +1,16 @@
+.book-list{width: 100%;position: relative;}
+.book-list>a>li{height: 3.4722222rem;margin-bottom: 0.1388889rem;width: 100%;}
+.book-list>a>li>div{float: left;height: 100%;}
+.book-detial-box{background: no-repeat right top;background-size: 1.9444444rem auto;width: 100%;padding: 0.1388889rem 0.1944444rem;background-color: #fff;border: 1px solid #bdbdbd;height: 100%;}
+.book-detial-box>div{float: left;}
+.book-detial-box>a{float: right;}
+.imgCollection{width: 2.5rem;height: 100%;background: no-repeat center center;background-size: 100% 100%;}
+.detial-box{margin-left: 0.2777778rem;width: 4rem;}
+.detial-box>span{height: 0.5rem;line-height: 0.5rem;display: block;overflow: hidden;}
+.readmore{margin-top: 2.0833333rem;width: 2.2222222rem;height: 0.8888889rem;border-radius: 0.4444444rem;background-color: #ffb400;line-height: 0.8888889rem;text-align: center;color: #fff;font-size: 0.4166667rem;}
+.book-name{margin: 0.0555556rem 0 0.1666667rem;}
+.book-info{font-size: 0.4166667rem;color: #999;margin-bottom: 0.1111111rem;padding-left: 0.6944444rem;background: no-repeat left center;background-size: 0.5rem auto;}
+.detial-box>span.book-updateTime{margin-bottom: 0.1944444rem;font-size: 0.3888889rem;line-height: 0.5555556rem;padding-left: 0.6944444rem;color: #e13511;background: url(../../colorComic/image/icon_update_time.jpg) no-repeat left center;background-size: 0.5555556rem 0.5555556rem;}
+.detial-box>span.book-author{background-image: url(img/icon_read_author.png);}
+.detial-box>span.book-praise{background-image: url(img/icon_read_praise.png);}
+.detial-box>span.book-tag{background-image: url(img/icon_read_tag.png);}

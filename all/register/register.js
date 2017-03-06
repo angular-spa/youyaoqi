@@ -45,5 +45,6 @@ angular.module('registerModule',['ui.router'])
 			localArr.push(userObj);
 			localStorage.setItem('user',JSON.stringify(localArr));
 		}
+		
 	}
 }])

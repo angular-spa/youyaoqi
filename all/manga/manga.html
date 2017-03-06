@@ -27,7 +27,8 @@
 	<div id="mgScrollView">
 		<div ng-repeat="(i,obj) in arrImgs"  ng-click="mgClick(i)">
 			<a ui-sref="son" >
-				<img src={{obj.img}}    />
+				<!--<img src={{obj.img}}    />-->
+				<div style="background-image: url({{obj.img}});"></div>
 				<span>{{obj.word}}</span>
 			</a>
 		</div>

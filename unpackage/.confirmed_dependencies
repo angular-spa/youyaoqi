@@ -19,7 +19,13 @@
 			"all/login/login.js",
 			"all/update/update.js",
 			"all/register/register.js",
-			"all/user/user.js"
+			"all/user/user.js",
+			"all/bookrack/bookrack.css",
+			"all/rank/rank.js",
+			"all/bookrack/collection/collection.js",
+			"lib/infinite-scroll.js",
+			"all/search/list/list.js",
+			"all/search/search.js"
 		]
 	}
 }
