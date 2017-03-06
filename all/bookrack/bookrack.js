@@ -1,4 +1,4 @@
-angular.module('bookrackModule',['ui.router','collectionModule'])
+angular.module('bookrackModule',['ui.router','collectionModule','readModule'])
 .config(function($stateProvider){
 	$stateProvider
 	.state('bookrack',{
@@ -9,13 +9,35 @@ angular.module('bookrackModule',['ui.router','collectionModule'])
 	})
 })
 .controller('bookrackCtrl',['$scope','$state',function($scope,$state){
+	$scope.curflag = 1;
 	$scope.selflag = true;
 	
-	$state.go('bookrack.collection');
-	$scope.curflag = 1;
-	$scope.delShowSlag = true;
+	//默认打开收藏
+	if(sessionStorage.getItem('whitchFlag2')){
+		var whitchFlag2 = sessionStorage.getItem('whitchFlag2');
+		console.log(whitchFlag2);
+		if(whitchFlag2=='collection'){
+			$scope.curflag = 1;
+		}else{
+			$scope.curflag = 2;
+		}
+		$state.go('bookrack.'+whitchFlag2);
+	}else{
+		$state.go('bookrack.collection');
+	}
+	
+	
 	$scope.delShow = function(){
-		$scope.delShowSlag = !$scope.delShowSlag;
+		if($('.bookrack_header_img').hasClass('show')){
+			$('.bookrack_header_img').removeClass('show');
+		}else{
+			$('.bookrack_header_img').addClass('show');
+		}
+		if($('.del-choose').hasClass('show')){
+			$('.del-choose').removeClass('show');
+		}else{
+			$('.del-choose').addClass('show');
+		}
 		if($('.book-list').hasClass('aniShow')){
 			$('.book-list').removeClass('aniShow');
 		}else{
@@ -52,13 +74,10 @@ angular.module('bookrackModule',['ui.router','collectionModule'])
 	
 	//从sessionStorage 的 currentUser 的 collection数组里面删除选中的数据
 	function delCollection(idArr){
-		console.log(idArr);
 		if(sessionStorage.getItem('currentUser')){
 			var currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 			var collection = currentUser.collection;
-			console.log(collection);
 			for(var j=0;j<idArr.length;j++){
-				console.log('进来了');
 				for(var i=0;i<collection.length;i++){
 					if(collection[i].comicId == idArr[j]){
 						collection.splice(i,1);
@@ -68,4 +87,33 @@ angular.module('bookrackModule',['ui.router','collectionModule'])
 			sessionStorage.setItem('currentUser',JSON.stringify(currentUser));
 		}
 	}
+	
+	//返回前一页功能
+	$scope.returnLastPage = function(){
+		var path = decodeURI(location.pathname);
+		var origin = location.origin;
+//		history.back();
+		if(sessionStorage.getItem('whitchFlag')){
+			var whitchFlag = sessionStorage.getItem('whitchFlag');
+			console.log(whitchFlag);
+			if(whitchFlag=='user'){
+				location.href = origin+path+'#/user';
+			}else{
+				location.href = origin+path+'#/home';
+			}
+		}
+	}
+	
+	
+//	//二级路由切换页面replace
+//	$scope.changePage = function(num){
+//		var path = decodeURI(location.pathname);
+//		var origin = location.origin;
+//		$scope.curflag = num;
+//		if(num==1){
+//			location.replace(origin+path+'#/bookrack/collection');
+//		}else{
+//			location.replace(origin+path+'#/bookrack/read');
+//		}
+//	}
 }])

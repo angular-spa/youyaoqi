@@ -26,4 +26,8 @@ angular.module('userModule',['ui.router'])
 			sessionStorage.setItem('currentUser','');
 		}
 	}
+	
+	$scope.flagToWhitch = function(str){
+		sessionStorage.setItem('whitchFlag',str);
+	}
 }])

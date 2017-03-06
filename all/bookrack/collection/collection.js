@@ -9,6 +9,9 @@ angular.module('collectionModule',['ui.router'])
 	})
 })
 .controller('collectionCtrl',['$scope',function($scope){
+	$('.bookrack_header_img').addClass('show');
+	
+	
 	//给所有的checkbox设置点击事件
 	$scope.checkStatus = function(obj){
 		if($(obj.target).hasClass('checked')){
@@ -38,4 +41,10 @@ angular.module('collectionModule',['ui.router'])
 		var dateStr = year+'-'+month+'-'+day;
 		return dateStr;
 	}
+	
+	flagToWhitch();
+	function flagToWhitch(){
+		sessionStorage.setItem('whitchFlag2','collection');
+	}
+	
 }])

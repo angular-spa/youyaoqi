@@ -16,9 +16,9 @@ angular.module('loginModule',['ui.router','registerModule'])
 	var url_ = '';
 	$scope.login = function(){
 		var path = decodeURI(location.pathname);
-		var origin = location.origin
+		var origin = location.origin;
 		userName = $('#username').val();
-		psd = $('#psd').val()
+		psd = $('#psd').val();
 		if(localStorage.getItem('user')){
 			var localArr = JSON.parse(localStorage.getItem('user'));
 			for(var i=0;i<localArr.length;i++){
@@ -26,6 +26,7 @@ angular.module('loginModule',['ui.router','registerModule'])
 					sessionStorage.setItem('loginflag',true);
 					sessionStorage.setItem('currentUser',JSON.stringify(localArr[i]));
 					url_ = sessionStorage.getItem('whitchFlag');
+
 					location.href = origin+path+'#/'+url_;
 					if(url_=="comicDetail"){
 						sessionStorage.setItem("login","go");
@@ -35,4 +36,5 @@ angular.module('loginModule',['ui.router','registerModule'])
 			}
 		}
 	}
+
 }])
